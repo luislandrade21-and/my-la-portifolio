@@ -27,6 +27,10 @@
   <!-- ✅ FIX: canonical URL correta -->
   <link rel="canonical" href="https://portifoliola.netlify.app/">
 
+  <!-- ✅ Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/c99338d5252a7fed294907d3bf7613ececd0b146/imagens/Logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/c99338d5252a7fed294907d3bf7613ececd0b146/imagens/Logo.svg">
+
   <!-- ✅ Preconnect para fontes (mantido - bom para performance) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -416,9 +420,12 @@
     <div class="h-full flex items-center justify-center hero-content">
       <div class="text-center px-4 fade-in">
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Luis Andrade</h1>
-        <h2 class="text-2xl md:text-3xl text-blue-300 mb-8">Arquiteto e Urbanista</h2>
+        <h2 class="text-2xl md:text-3xl text-blue-300 mb-4">Arquiteto e Urbanista</h2>
+        <p class="text-base md:text-lg text-blue-200 mb-6 font-light tracking-wide">
+          Mestrando em Urbanismo · Universidade de Lisboa
+        </p>
         <p class="text-lg md:text-xl text-white max-w-2xl mx-auto mb-8">
-          Recém-graduado em Arquitetura e Urbanismo, trago uma paixão profunda pela criação de espaços sustentáveis e inovadores.
+          Especializado em paisagismo, patrimônio histórico e planejamento urbano sustentável, com experiência entre Brasil e Portugal.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a href="#portfolio" class="inline-block bg-[var(--primary-color)] hover:bg-[var(--dark-color)] text-white font-medium py-3 px-6 rounded-lg transition duration-300">
@@ -427,7 +434,18 @@
           <a href="#contact" class="inline-block bg-transparent border-2 border-white hover:bg-white hover:text-[var(--primary-color)] text-white font-medium py-3 px-6 rounded-lg transition duration-300">
             Entre em Contato
           </a>
+          <!-- Botão CV: quando o PDF estiver pronto, troque o href pelo caminho do arquivo, ex: href="cv/luis-andrade-cv.pdf" -->
+          <a href="#"
+             id="cv-btn"
+             title="CV em breve disponível"
+             class="inline-flex items-center gap-2 bg-transparent border-2 border-blue-300 text-blue-200 font-medium py-3 px-6 rounded-lg opacity-60 cursor-not-allowed select-none"
+             aria-disabled="true"
+             onclick="return false;">
+            <i class="fas fa-file-pdf" aria-hidden="true"></i>
+            Baixar CV
+          </a>
         </div>
+        <p class="text-xs text-blue-200 mt-3 opacity-60">CV em preparação — disponível em breve</p>
       </div>
     </div>
     <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
@@ -885,6 +903,16 @@
         </nav>
       </div>
       <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+        <div class="flex justify-center gap-5 mb-4">
+          <a href="https://www.linkedin.com/in/luis-e-l-andrade-a10b583b4/" target="_blank" rel="noopener noreferrer"
+             class="text-gray-400 hover:text-white transition-colors text-xl" aria-label="LinkedIn de Luis Andrade">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:luis.ela.arquitetura@hotmail.com"
+             class="text-gray-400 hover:text-white transition-colors text-xl" aria-label="Email de Luis Andrade">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
+        </div>
         <p>© <span id="footer-year"></span> Portfólio LA. Todos os direitos reservados.</p>
       </div>
     </div>
