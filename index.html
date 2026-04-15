@@ -556,8 +556,8 @@
           <div class="md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
             <div class="bg-white p-6 rounded-lg shadow-md">
               <h3 class="text-xl font-semibold text-[var(--primary-color)]">Assistente Estagiário Universitário</h3>
-              <p class="text-gray-500 mb-2">Fev 2023 – Jan 2024</p>
-              <p class="text-gray-600">Marcelo Novaes Paisagismo – Campinas</p>
+              <p class="text-gray-500 mb-2">Fev 2022 – Jun 2022</p>
+              <p class="text-gray-600">Extensão HABITAR 60+</p>
             </div>
           </div>
           <div class="hidden md:block md:w-1/2"></div>
@@ -567,8 +567,8 @@
           <div class="md:w-1/2 md:pl-8">
             <div class="bg-white p-6 rounded-lg shadow-md">
               <h3 class="text-xl font-semibold text-[var(--primary-color)]">Assistente Estagiário Universitário</h3>
-              <p class="text-gray-500 mb-2">Fev 2022 – Jun 2022</p>
-              <p class="text-gray-600">Extensão HABITAR 60+</p>
+              <p class="text-gray-500 mb-2">Fev 2023 – Jan 2024</p>
+              <p class="text-gray-600">Marcelo Novaes Paisagismo – Campinas</p>
             </div>
           </div>
         </div>
@@ -939,29 +939,15 @@
        role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="bg-white rounded-xl wider-modal max-h-[90vh] flex flex-col relative">
 
-      <!-- ✅ Navegação FIXA no topo do modal -->
-      <div class="flex justify-between items-center px-6 py-3 border-b border-gray-100 bg-white rounded-t-xl flex-shrink-0">
-        <button onclick="navigateProject(-1)"
-                id="prev-project-btn"
-                class="flex items-center gap-2 text-[var(--primary-color)] hover:text-[var(--dark-color)] font-medium text-sm transition-colors disabled:opacity-30">
-          <i class="fas fa-arrow-left" aria-hidden="true"></i>
-          <span id="prev-project-name">Anterior</span>
-        </button>
-        <button onclick="closeProjectModal()"
-                class="bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full w-9 h-9 flex items-center justify-center transition-colors"
-                aria-label="Fechar modal">
-          <i class="fas fa-times" aria-hidden="true"></i>
-        </button>
-        <button onclick="navigateProject(1)"
-                id="next-project-btn"
-                class="flex items-center gap-2 text-[var(--primary-color)] hover:text-[var(--dark-color)] font-medium text-sm transition-colors disabled:opacity-30">
-          <span id="next-project-name">Próximo</span>
-          <i class="fas fa-arrow-right" aria-hidden="true"></i>
-        </button>
-      </div>
+      <!-- ✅ Botão X fixo no canto superior direito -->
+      <button onclick="closeProjectModal()"
+              class="absolute top-4 right-4 z-20 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full w-9 h-9 flex items-center justify-center transition-colors"
+              aria-label="Fechar modal">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
 
       <!-- Conteúdo scrollável -->
-      <div class="p-6 md:p-8 overflow-y-auto">
+      <div class="p-6 md:p-8 overflow-y-auto flex-1">
         <div class="flex flex-col lg:flex-row gap-8">
           <!-- Carousel -->
           <div class="lg:w-2/3">
@@ -997,7 +983,6 @@
                   <span class="font-medium text-gray-700 w-24 flex-shrink-0">Local:</span>
                   <span id="modal-location" class="text-gray-600"></span>
                 </li>
-                <!-- ✅ Orientador ou Equipe — mostrado dinamicamente pelo JS -->
                 <li class="flex items-start" id="modal-people-row">
                   <span class="font-medium text-gray-700 w-24 flex-shrink-0" id="modal-people-label">Orientador:</span>
                   <span id="modal-people-value" class="text-gray-600"></span>
@@ -1011,6 +996,23 @@
           </div>
         </div>
       </div>
+
+      <!-- ✅ Navegação FIXA na parte inferior do modal -->
+      <div class="flex justify-between items-center px-6 py-3 border-t border-gray-100 bg-white rounded-b-xl flex-shrink-0">
+        <button onclick="navigateProject(-1)"
+                id="prev-project-btn"
+                class="flex items-center gap-2 text-[var(--primary-color)] hover:text-[var(--dark-color)] font-medium text-sm transition-colors">
+          <i class="fas fa-arrow-left" aria-hidden="true"></i>
+          <span id="prev-project-name"></span>
+        </button>
+        <button onclick="navigateProject(1)"
+                id="next-project-btn"
+                class="flex items-center gap-2 text-[var(--primary-color)] hover:text-[var(--dark-color)] font-medium text-sm transition-colors">
+          <span id="next-project-name"></span>
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+
     </div>
   </div>
 
