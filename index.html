@@ -60,6 +60,13 @@
       overflow-x: hidden;
     }
 
+    /* ✅ Texto justificado nos parágrafos de conteúdo */
+    p, .text-gray-600, .text-gray-700 {
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+
     /* ✅ scroll-behavior nativo no CSS (sem JS) */
     html { scroll-behavior: smooth; }
 
@@ -434,17 +441,22 @@
           <a href="#contact" class="inline-block bg-transparent border-2 border-white hover:bg-white hover:text-[var(--primary-color)] text-white font-medium py-3 px-6 rounded-lg transition duration-300">
             Entre em Contato
           </a>
-          <!-- Botão CV: quando o PDF estiver pronto, troque o href pelo caminho do arquivo, ex: href="cv/luis-andrade-cv.pdf" -->
-          <a href="cv/luis-andrade-portifolio-2025.pdf" download
-             id="cv-btn"
-             title="Portifolio completo em PDF"
-             class="inline-flex items-center gap-2 bg-transparent border-2 border-blue-300 text-blue-200 font-medium py-3 px-6 rounded-lg select-none"
-             aria-disabled="true">
+          <!-- ✅ Botão CV ativo -->
+          <a href="cv/luis-andrade-CV-2025.pdf"
+             download
+             class="inline-flex items-center gap-2 bg-transparent border-2 border-blue-300 hover:bg-blue-300 hover:text-[var(--dark-color)] text-blue-200 font-medium py-3 px-6 rounded-lg transition duration-300">
             <i class="fas fa-file-pdf" aria-hidden="true"></i>
             Baixar CV
           </a>
         </div>
-        <p class="text-xs text-blue-200 mt-3 opacity-60">Ver Portifólio em PDF </p>
+        <!-- ✅ Link discreto para o portfólio em PDF -->
+        <p class="text-xs text-blue-200 mt-4 opacity-80">
+          <a href="cv/luis-andrade-portifolio-2025.pdf"
+             download
+             class="underline underline-offset-2 hover:opacity-100 transition-opacity duration-200 cursor-pointer">
+            Ver Portfólio completo em PDF
+          </a>
+        </p>
       </div>
     </div>
     <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
