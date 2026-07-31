@@ -129,6 +129,14 @@
 
     .portfolio-item:hover .portfolio-overlay { transform: translateY(0); }
 
+    /* Zoom suave da imagem no hover */
+    .portfolio-item img {
+      transition: transform 0.5s ease;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.06);
+    }
+
     .timeline::before {
       content: '';
       position: absolute;
@@ -756,58 +764,43 @@
   </section>
 
   <!-- Pesquisa Section -->
-  <section id="pesquisa" class="py-20 bg-[var(--dark-color)]" aria-labelledby="pesquisa-title">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in">
-        <h2 id="pesquisa-title" class="text-3xl font-bold text-white mb-4">Pesquisa</h2>
-        <div class="w-20 h-1 bg-[var(--secondary-color)] mx-auto"></div>
-        <p class="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">
-          Investigação acadêmica desenvolvida no Mestrado em Ordenamento do Território e Urbanismo.
-        </p>
+  <section id="pesquisa" class="py-12 bg-[var(--dark-color)]" aria-labelledby="pesquisa-title">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 fade-in">
+        <h2 id="pesquisa-title" class="text-2xl font-bold text-white mb-3">Pesquisa</h2>
+        <div class="w-16 h-1 bg-[var(--secondary-color)] mx-auto"></div>
       </div>
 
-      <!-- Card da dissertação -->
-      <div class="flex flex-col md:flex-row gap-10 items-center bg-white/5 border border-white/10 rounded-xl p-8 md:p-10 fade-in">
+      <!-- Card da dissertação (compacto) -->
+      <div class="flex flex-col sm:flex-row gap-6 items-center bg-white/5 border border-white/10 rounded-xl p-5 sm:p-6 fade-in">
 
         <!-- Capa -->
-        <div class="md:w-1/3 w-full flex-shrink-0">
-          <a href="cv/luis-andrade-dissertacao-2026.pdf" target="_blank" rel="noopener"
-             class="block rounded-lg overflow-hidden shadow-2xl hover:scale-[1.02] transition-transform duration-300"
-             aria-label="Abrir a dissertação em PDF">
-            <img src="imagens/capa-dissertacao.jpg"
-                 alt="Capa da dissertação — Regenerar Infraestruturas de Transporte como Infraestrutura Verde"
-                 class="w-full h-auto object-cover"
-                 loading="lazy">
-          </a>
-        </div>
+        <a href="cv/luis-andrade-dissertacao-2026.pdf" target="_blank" rel="noopener"
+           class="block w-28 flex-shrink-0 rounded-md overflow-hidden shadow-lg hover:scale-[1.03] transition-transform duration-300"
+           aria-label="Abrir a dissertação em PDF">
+          <img src="imagens/capa-dissertacao.jpg"
+               alt="Capa da dissertação — Regenerar Infraestruturas de Transporte como Infraestrutura Verde"
+               class="w-full h-auto object-cover"
+               loading="lazy">
+        </a>
 
         <!-- Resumo -->
-        <div class="md:w-2/3">
-          <p class="text-xs tracking-widest uppercase text-[var(--secondary-color)] mb-3">Dissertação de Mestrado · FA.ULisboa · 2026</p>
-          <h3 class="text-2xl md:text-3xl font-semibold text-white mb-5 leading-snug">
+        <div class="flex-1 text-center sm:text-left">
+          <p class="text-[10px] tracking-widest uppercase text-[var(--secondary-color)] mb-1">Dissertação de Mestrado · FA.ULisboa · 2026</p>
+          <h3 class="text-lg md:text-xl font-semibold text-white mb-2 leading-snug">
             Regenerar Infraestruturas de Transporte como Infraestrutura Verde
           </h3>
-          <p class="text-gray-300 leading-relaxed mb-4">
-            A dissertação investiga as infraestruturas de transporte de Odivelas como oportunidades de
-            regeneração urbana. Através de uma abordagem de <strong class="text-white">Soluções Baseadas na
-            Natureza (NBS)</strong>, propõe a sua transformação em <strong class="text-white">infraestrutura
-            verde</strong> — articulando mobilidade, drenagem sustentável, conforto climático e espaço
-            público qualificado.
+          <p class="text-gray-300 text-sm leading-relaxed mb-4">
+            Uma abordagem de <strong class="text-white">Soluções Baseadas na Natureza</strong> aplicada ao
+            território de Odivelas, propondo a transformação das infraestruturas de transporte em
+            <strong class="text-white">infraestrutura verde</strong>.
           </p>
-          <p class="text-gray-300 leading-relaxed mb-8">
-            O trabalho cruza análise territorial, cartografia temática e o quadro de instrumentos de gestão
-            territorial em vigor, culminando em propostas de intervenção ilustradas para os troços com maior
-            potencial de regeneração.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
-            <a href="cv/luis-andrade-dissertacao-2026.pdf"
-               download
-               class="inline-flex items-center justify-center gap-2 bg-[var(--secondary-color)] hover:bg-white text-[var(--dark-color)] font-medium py-3 px-6 rounded-lg transition duration-300">
-              <i class="fas fa-file-pdf" aria-hidden="true"></i>
-              Baixar dissertação (PDF)
-            </a>
-            <span class="text-gray-400 text-sm">Universidade de Lisboa · Set 2024 – Jul 2026</span>
-          </div>
+          <a href="cv/luis-andrade-dissertacao-2026.pdf"
+             download
+             class="inline-flex items-center gap-2 bg-[var(--secondary-color)] hover:bg-white text-[var(--dark-color)] text-sm font-medium py-2 px-5 rounded-lg transition duration-300">
+            <i class="fas fa-file-pdf" aria-hidden="true"></i>
+            Baixar dissertação (PDF)
+          </a>
         </div>
 
       </div>
@@ -1127,12 +1120,17 @@
       });
     });
 
-    // ── Fade-in on scroll (IntersectionObserver) ──
+    // ── Fade-in on scroll (IntersectionObserver) com cascata ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          // Cascata: itens irmãos dentro do mesmo grid entram em sequência
+          const el = entry.target;
+          const siblings = Array.from(el.parentElement.children).filter(c => c.classList.contains('fade-in'));
+          const idx = siblings.indexOf(el);
+          el.style.transitionDelay = (idx > 0 ? Math.min(idx, 6) * 0.08 : 0) + 's';
+          el.classList.add('visible');
+          observer.unobserve(el);
         }
       });
     }, { threshold: 0.1 });
