@@ -1090,6 +1090,17 @@
           <!-- Info -->
           <div class="lg:w-1/3">
             <h2 id="modal-title" class="text-2xl font-bold text-gray-900 mb-4"></h2>
+
+            <!-- Botão de PDF do projeto (só aparece se data-pdf existir) -->
+            <a id="modal-pdf-btn"
+               href="#"
+               target="_blank"
+               rel="noopener"
+               class="hidden mb-5 items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--dark-color)] text-white font-medium py-2.5 px-5 rounded-lg transition duration-300 w-fit">
+              <i class="fas fa-file-pdf" aria-hidden="true"></i>
+              Ver caderno completo (PDF)
+            </a>
+
             <p id="modal-description" class="text-gray-600 mb-6"></p>
             <div class="bg-gray-50 rounded-lg p-4">
               <h4 class="font-semibold text-gray-800 mb-3">Informações do Projeto</h4>
@@ -1115,16 +1126,6 @@
                   <span id="modal-area" class="text-gray-600"></span>
                 </li>
               </ul>
-
-              <!-- Botão de PDF do projeto (só aparece se data-pdf existir) -->
-              <a id="modal-pdf-btn"
-                 href="#"
-                 target="_blank"
-                 rel="noopener"
-                 class="hidden mt-6 items-center gap-2 bg-[var(--primary-color)] hover:bg-[var(--dark-color)] text-white font-medium py-2.5 px-5 rounded-lg transition duration-300 w-fit">
-                <i class="fas fa-file-pdf" aria-hidden="true"></i>
-                Ver caderno completo (PDF)
-              </a>
             </div>
           </div>
         </div>
