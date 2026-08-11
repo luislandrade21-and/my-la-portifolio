@@ -279,7 +279,7 @@
     /* Carousel */
     .carousel-container { position: relative; overflow: hidden; }
     .carousel-track { display: flex; transition: transform 0.3s ease; height: 100%; }
-    .carousel-slide { min-width: 100%; height: 70vh; max-height: 70vh; display: flex; align-items: center; justify-content: center; }
+    .carousel-slide { min-width: 100%; height: 74vh; max-height: 74vh; display: flex; align-items: center; justify-content: center; }
     .carousel-slide img { width: 100%; height: 100%; object-fit: contain; background: #0e0e0e; }
 
     .carousel-nav {
@@ -1154,23 +1154,24 @@
         </aside>
       </div>
 
-      <!-- Barra de navegação entre projetos (sempre visível, no fundo) -->
-      <div class="flex items-stretch border-t border-gray-200 bg-gray-50 flex-shrink-0">
+      <!-- Barra de navegação entre projetos (discreta, no fundo) -->
+      <div class="flex items-stretch border-t border-gray-100 bg-white flex-shrink-0">
         <button onclick="navigateProject(-1)" id="prev-project-btn"
-                class="flex items-center gap-3 px-5 py-4 hover:bg-gray-100 transition-colors flex-1 text-left border-r border-gray-200 disabled:opacity-30 disabled:cursor-not-allowed">
-          <i class="fas fa-arrow-left text-[var(--primary-color)]" aria-hidden="true"></i>
+                class="flex items-center gap-2.5 px-5 py-2.5 hover:bg-gray-50 transition-colors flex-1 text-left disabled:opacity-25 disabled:cursor-not-allowed">
+          <i class="fas fa-arrow-left text-[var(--primary-color)] text-xs" aria-hidden="true"></i>
           <span class="min-w-0">
-            <span class="block text-[10px] uppercase tracking-widest text-gray-400">Anterior</span>
-            <span id="prev-project-name" class="block text-sm font-medium text-gray-800 truncate"></span>
+            <span class="block text-[9px] uppercase tracking-widest text-gray-400 leading-none mb-0.5">Anterior</span>
+            <span id="prev-project-name" class="block text-xs font-medium text-gray-700 truncate"></span>
           </span>
         </button>
+        <div class="w-px bg-gray-100 my-2"></div>
         <button onclick="navigateProject(1)" id="next-project-btn"
-                class="flex items-center justify-end gap-3 px-5 py-4 hover:bg-gray-100 transition-colors flex-1 text-right disabled:opacity-30 disabled:cursor-not-allowed">
+                class="flex items-center justify-end gap-2.5 px-5 py-2.5 hover:bg-gray-50 transition-colors flex-1 text-right disabled:opacity-25 disabled:cursor-not-allowed">
           <span class="min-w-0">
-            <span class="block text-[10px] uppercase tracking-widest text-gray-400">Próximo</span>
-            <span id="next-project-name" class="block text-sm font-medium text-gray-800 truncate"></span>
+            <span class="block text-[9px] uppercase tracking-widest text-gray-400 leading-none mb-0.5">Próximo</span>
+            <span id="next-project-name" class="block text-xs font-medium text-gray-700 truncate"></span>
           </span>
-          <i class="fas fa-arrow-right text-[var(--primary-color)]" aria-hidden="true"></i>
+          <i class="fas fa-arrow-right text-[var(--primary-color)] text-xs" aria-hidden="true"></i>
         </button>
       </div>
 
