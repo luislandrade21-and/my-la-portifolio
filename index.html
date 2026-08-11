@@ -238,6 +238,8 @@
     }
 
     .scroll-top.visible { opacity: 1; visibility: visible; }
+    /* Esconde o botão de subir quando o popup está aberto */
+    body.modal-open .scroll-top { opacity: 0 !important; visibility: hidden !important; }
     .scroll-top:hover { background-color: var(--dark-color); transform: translateY(-5px); }
 
     /* Form */
@@ -1079,13 +1081,13 @@
 
     <!-- Botão X global -->
     <button onclick="closeProjectModal()"
-            class="absolute top-4 right-4 z-30 text-white/70 hover:text-white w-11 h-11 flex items-center justify-center transition-colors"
+            class="absolute top-4 right-4 z-30 bg-black/50 hover:bg-black/80 text-white w-11 h-11 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
             aria-label="Fechar">
-      <i class="fas fa-times text-2xl" aria-hidden="true"></i>
+      <i class="fas fa-times text-xl" aria-hidden="true"></i>
     </button>
 
     <!-- Layout: imagem (esq) + painel (dir), com respiro à volta -->
-    <div class="relative z-10 h-full flex flex-col lg:flex-row gap-4 lg:gap-6 p-4 md:p-6 lg:p-8">
+    <div class="relative z-10 h-full flex flex-col lg:flex-row gap-4 lg:gap-6 p-4 md:p-6 lg:p-8 pb-12 lg:pb-14">
 
       <!-- Palco da imagem (flutua, com respiro) -->
       <div class="archd-stage relative flex-1 flex items-center justify-center min-h-0">
@@ -1158,29 +1160,29 @@
             <p id="modal-description" class="text-gray-600 text-sm leading-relaxed"></p>
           </div>
         </div>
-
-        <!-- Navegação entre projetos (dentro do painel, no fundo) -->
-        <div class="border-t border-gray-200 flex items-stretch flex-shrink-0">
-          <button onclick="navigateProject(-1)" id="prev-project-btn"
-                  class="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 transition-colors flex-1 text-left disabled:opacity-25 disabled:cursor-not-allowed">
-            <i class="fas fa-arrow-left text-[var(--primary-color)] text-xs" aria-hidden="true"></i>
-            <span class="min-w-0">
-              <span class="block text-[9px] uppercase tracking-widest text-gray-400 leading-none mb-0.5">Anterior</span>
-              <span id="prev-project-name" class="block text-xs font-medium text-gray-700 truncate"></span>
-            </span>
-          </button>
-          <div class="w-px bg-gray-200 my-2"></div>
-          <button onclick="navigateProject(1)" id="next-project-btn"
-                  class="flex items-center justify-end gap-2 px-4 py-3 hover:bg-gray-50 transition-colors flex-1 text-right disabled:opacity-25 disabled:cursor-not-allowed">
-            <span class="min-w-0">
-              <span class="block text-[9px] uppercase tracking-widest text-gray-400 leading-none mb-0.5">Próximo</span>
-              <span id="next-project-name" class="block text-xs font-medium text-gray-700 truncate"></span>
-            </span>
-            <i class="fas fa-arrow-right text-[var(--primary-color)] text-xs" aria-hidden="true"></i>
-          </button>
-        </div>
       </aside>
 
+    </div>
+
+    <!-- Navegação entre projetos: sobre o fundo escuro, seamless -->
+    <div class="absolute bottom-0 left-0 right-0 z-20 flex items-stretch pointer-events-none px-4 md:px-6 lg:px-8 pb-2">
+      <button onclick="navigateProject(-1)" id="prev-project-btn"
+              class="pointer-events-auto flex items-center gap-2.5 py-2 pr-4 text-left transition-opacity hover:opacity-70 disabled:opacity-20 disabled:cursor-not-allowed">
+        <i class="fas fa-arrow-left text-white/80 text-sm" aria-hidden="true"></i>
+        <span class="min-w-0">
+          <span class="block text-[9px] uppercase tracking-widest text-white/40 leading-none mb-0.5">Anterior</span>
+          <span id="prev-project-name" class="block text-xs font-medium text-white/90 truncate max-w-[180px]"></span>
+        </span>
+      </button>
+      <div class="flex-1"></div>
+      <button onclick="navigateProject(1)" id="next-project-btn"
+              class="pointer-events-auto flex items-center justify-end gap-2.5 py-2 pl-4 text-right transition-opacity hover:opacity-70 disabled:opacity-20 disabled:cursor-not-allowed">
+        <span class="min-w-0">
+          <span class="block text-[9px] uppercase tracking-widest text-white/40 leading-none mb-0.5">Próximo</span>
+          <span id="next-project-name" class="block text-xs font-medium text-white/90 truncate max-w-[180px]"></span>
+        </span>
+        <i class="fas fa-arrow-right text-white/80 text-sm" aria-hidden="true"></i>
+      </button>
     </div>
   </div>
 
@@ -1327,6 +1329,7 @@
       const modal = document.getElementById('project-modal');
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('modal-open');
       modal.focus();
     }
 
@@ -1334,6 +1337,7 @@
       const modal = document.getElementById('project-modal');
       modal.classList.add('hidden');
       document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
     }
 
     // Close modal on backdrop click
