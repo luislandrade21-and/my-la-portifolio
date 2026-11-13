@@ -28,16 +28,16 @@
   <link rel="canonical" href="https://portifoliola.netlify.app/">
 
   <!-- ✅ Favicon -->
-  <link rel="icon" href="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/c99338d5252a7fed294907d3bf7613ececd0b146/imagens/Logo.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/c99338d5252a7fed294907d3bf7613ececd0b146/imagens/Logo.svg">
+  <link rel="icon" href="imagens/Logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="imagens/Logo.svg">
 
   <!-- ✅ Preconnect para fontes (mantido - bom para performance) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CDN (mantido - funcional para portfólio estático) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind compilado (gerado a partir do index.html; ver README) -->
+  <link rel="stylesheet" href="css/tailwind.css">
 
   <!-- ✅ FIX: Apenas ícones necessários do Font Awesome (subset) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -61,7 +61,7 @@
     }
 
     /* ✅ Texto justificado apenas nas seções de conteúdo — não no hero */
-    #about p, #portfolio p, #services p, #contact p,
+    #about p, #portfolio p, #competencias p, #contact p,
     .text-gray-600, .text-gray-700 {
       text-align: justify;
       hyphens: auto;
@@ -417,7 +417,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex items-center">
-          <img src="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/c99338d5252a7fed294907d3bf7613ececd0b146/imagens/Logo.svg"
+          <img src="imagens/Logo.svg"
                alt="Logo Portfólio LA"
                class="w-10 h-10 mr-2"
                width="40" height="40">
@@ -428,7 +428,7 @@
           <a href="#about" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Sobre</a>
           <a href="#portfolio" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Portfólio</a>
           <a href="#pesquisa" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Pesquisa</a>
-          <a href="#services" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Serviços</a>
+          <a href="#competencias" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Competências</a>
           <a href="#contact" class="nav-link bg-[var(--primary-color)] text-white px-4 py-2 rounded-lg hover:bg-[var(--dark-color)] transition duration-300">Contato</a>
         </div>
         <div class="md:hidden flex items-center">
@@ -445,7 +445,7 @@
         <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Sobre</a>
         <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Portfólio</a>
         <a href="#pesquisa" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Pesquisa</a>
-        <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Serviços</a>
+        <a href="#competencias" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Competências</a>
         <a href="#contact" class="block px-3 py-2 bg-[var(--primary-color)] text-white rounded-lg hover:bg-[var(--dark-color)] transition duration-300" role="menuitem">Contato</a>
       </div>
     </div>
@@ -636,16 +636,16 @@
              onkeypress="if(event.key==='Enter')openProjectModal(0)"
              data-title="Abre Orlas: O samba do Povo"
              data-description="Trabalho Final de Graduação desenvolvido como parte do Plano de Desenvolvimento Urbano da Região Metropolitana de Vitória. O projeto propõe a reabilitação urbana da orla do rio Santa Maria no Sambão do Povo — região historicamente ligada à cultura do samba e à vida comunitária da cidade —, resgatando a relação da população com a margem do rio por meio de espaços públicos de convivência, cultura e lazer. A proposta articula mobilidade ativa, paisagismo integrado e identidade cultural local, com ênfase na inclusão social e na valorização da memória coletiva do lugar. O projeto foi reconhecido no contexto do PDU da Região Metropolitana de Vitória como intervenção de escala urbana com impacto social direto."
-             data-images='["https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2001%20%5BNova%20orla.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2002%20%5BIsométrica%20geral.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D%20(MENOR).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2003%20%5BSíntese%20de%20estudo%20da%20região.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2004%20%5BProposta%20geral.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2005%20%5BImplantação%20aproximada.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2006%20%5BConvívio%20na%20orla.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2007%20%5BEstrutura%20Proposta.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2008%20%5BDiversidade%20de%20momentos.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2009%20%5BNova%20Avenida.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D%20-1.png"]'
+             data-images='["imagens/1.%20Figura%2001%20%5BNova%20orla.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","imagens/1.%20Figura%2002%20%5BIsométrica%20geral.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D%20(MENOR).png","imagens/1.%20Figura%2003%20%5BSíntese%20de%20estudo%20da%20região.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D.png","imagens/1.%20Figura%2004%20%5BProposta%20geral.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D.png","imagens/1.%20Figura%2005%20%5BImplantação%20aproximada.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D.png","imagens/1.%20Figura%2006%20%5BConvívio%20na%20orla.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","imagens/1.%20Figura%2007%20%5BEstrutura%20Proposta.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","imagens/1.%20Figura%2008%20%5BDiversidade%20de%20momentos.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","imagens/1.%20Figura%2009%20%5BNova%20Avenida.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D%20-1.png"]'
              data-location="Sambão do Povo, Vitória – ES"
              data-date="Dez 2023"
              data-type="Revitalização, Projeto Urbano, Social"
              data-advisor="Claudio Manetti"
              data-team=""
              data-area="Trabalho Final de Graduação – PUC-Campinas"
-             data-pdf="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/cv/abre-orlas-caderno.pdf">
+             data-pdf="cv/abre-orlas-caderno.pdf">
           <!-- ✅ FIX: loading="lazy" nas imagens dos cards -->
-          <img src="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/1.%20Figura%2001%20%5BNova%20orla.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png"
+          <img src="imagens/1.%20Figura%2001%20%5BNova%20orla.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png"
                alt="Abre Orlas: O samba do Povo – render da nova orla"
                class="w-full h-64 object-cover"
                loading="lazy">
@@ -666,15 +666,15 @@
              onkeypress="if(event.key==='Enter')openProjectModal(1)"
              data-title="Parque do Olival"
              data-description="Projeto de formação do Mestrado em Ordenamento do Território e Urbanismo (MOTU), inserido na reformulação da coroa norte de Lisboa. Partindo da visão de costurar um território há muito negligenciado ao tecido metropolitano, foi selecionada — após um estudo detalhado da região — uma área intersticial em Odivelas, entre fragmentos urbanos e ecológicos, classificada pelo PDM como espaço verde a consolidar e integrada num sistema de corredores estruturantes. A proposta trabalha o espaço através de diferentes sistemas (verde, mobilidade, ecológico e edificado) que orientam sua estruturação, integrando ecologia e espaço urbano num modelo de baixa densidade orientado ao pedestre. O desenho apoia-se em estudos de perequação e na gestão do risco associado à linha de água, propondo um novo bairro misto que reforça a coesão sem apagar a identidade do lugar. O momento inicial de diagnóstico foi desenvolvido em dupla com Maisha Rahman."
-             data-images='["https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%201.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%202.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%203.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%204.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%205.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%206.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%207.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%208.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%209.png"]'
+             data-images='["imagens/6.%20Olival%20Figura%201.png","imagens/6.%20Olival%20Figura%202.png","imagens/6.%20Olival%20Figura%203.png","imagens/6.%20Olival%20Figura%204.png","imagens/6.%20Olival%20Figura%205.png","imagens/6.%20Olival%20Figura%206.png","imagens/6.%20Olival%20Figura%207.png","imagens/6.%20Olival%20Figura%208.png","imagens/6.%20Olival%20Figura%209.png"]'
              data-location="Odivelas, Lisboa – Portugal"
              data-date="2025"
              data-type="Projeto Urbano, Planejamento Territorial"
              data-advisor=""
              data-team="Diagnóstico em dupla com Maisha Rahman (MOTU)"
              data-area="Urbanismo e Estrutura Verde"
-             data-pdf="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/cv/parque-olival-caderno.pdf">
-          <img src="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/6.%20Olival%20Figura%201.png"
+             data-pdf="cv/parque-olival-caderno.pdf">
+          <img src="imagens/6.%20Olival%20Figura%201.png"
                alt="Parque do Olival – imagem principal"
                class="w-full h-64 object-cover"
                loading="lazy">
@@ -695,15 +695,15 @@
              onkeypress="if(event.key==='Enter')openProjectModal(2)"
              data-title="Loures Gateway"
              data-description="Projeto de formação do Mestrado em Ordenamento do Território e Urbanismo (MOTU), desenvolvido em equipe com Maisha Rahman e Alexander Zoheir, em parceria com o Município de Loures. O trabalho parte de uma premissa clara: a desativação e o descolamento do aeroporto liberará vastas áreas e gerará consequências profundas, abrindo uma oportunidade única de desenvolvimento para a região. O projeto propõe uma estratégia de regeneração que transforma o tecido industrial existente num gateway diverso, verde e de uso misto, assente em cinco diretrizes — conectividade ecológica, coesão urbana, identidade do lugar, mobilidade sustentável e regeneração urbano-ambiental. A partir do diagnóstico e da análise SWOT, foi selecionada uma área junto a Camarate e adjacente à CRIL para o desenvolvimento de um projeto de unidade de execução, ressignificando um espaço de transição hoje marcado pela logística e pela fragmentação."
-             data-images='["https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/7.%20Loures%20Figura%201.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/7.%20Loures%20Figura%202.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/7.%20Loures%20Figura%203.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/7.%20Loures%20Figura%204.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/7.%20Loures%20Figura%205.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/7.%20Loures%20Figura%206.png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/7.%20Loures%20Figura%207.png"]'
+             data-images='["imagens/7.%20Loures%20Figura%201.png","imagens/7.%20Loures%20Figura%202.png","imagens/7.%20Loures%20Figura%203.png","imagens/7.%20Loures%20Figura%204.png","imagens/7.%20Loures%20Figura%205.png","imagens/7.%20Loures%20Figura%206.png","imagens/7.%20Loures%20Figura%207.png"]'
              data-location="Loures – Portugal"
              data-date="2025"
              data-type="Planejamento Urbano, Diagnóstico Territorial"
              data-advisor=""
              data-team="Equipe: Maisha Rahman e Alexander Zoheir (MOTU)"
              data-area="Planejamento e Regeneração Urbana"
-             data-pdf="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/cv/loures-gateway-caderno.pdf">
-          <img src="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/7.%20Loures%20Figura%201.png"
+             data-pdf="cv/loures-gateway-caderno.pdf">
+          <img src="imagens/7.%20Loures%20Figura%201.png"
                alt="Loures Gateway – imagem principal"
                class="w-full h-64 object-cover"
                loading="lazy">
@@ -724,14 +724,14 @@
              onkeypress="if(event.key==='Enter')openProjectModal(3)"
              data-title="Escola Profissionalizante Vila Aeroporto"
              data-description="Na Vila Aeroporto em Campinas existe uma região abrangida por um projeto de parque linear. O projeto propõe uma escola especializada em cursos técnicos voltados para Engenharias e Arquitetura, integrada ao percurso do parque, com entradas de acesso que conectam os espaços educacionais às áreas de lazer. O terreno apresenta dois desafios centrais: um afluente do Rio Campivari que delimita área de proteção ambiental, e uma linha de alta tensão que restringe programas de estadia prolongada — ambos respondidos com soluções criativas de organização espacial. O programa contempla salas de aula e ateliê, refeitório, biblioteca, auditório comunitário e centro de convivência no lado oposto do córrego, com bicicletário, rampas de skate, parquinho e quadra poliesportiva. A circulação é garantida por sistema de rampas centrais que dão acesso universal a todos os programas."
-             data-images='["https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%201%20(Render%20Escola).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%202%20(Diagrama1).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%203%20(Diagrama2).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%204%20(Diagrama3).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%205%20(Diagrama4).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%206%20(Elevação).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%202%20(Render%20Escola%20Externa).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%207%20(Corte%20Interno).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%208%20(Implantação).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%2012%20(Corte%20Geral).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%2013%20(Render%20Praça).png"]'
+             data-images='["imagens/3.%20Figura%201%20(Render%20Escola).jpg","imagens/3.%20Figura%202%20(Diagrama1).jpg","imagens/3.%20Figura%203%20(Diagrama2).jpg","imagens/3.%20Figura%204%20(Diagrama3).jpg","imagens/3.%20Figura%205%20(Diagrama4).jpg","imagens/3.%20Figura%206%20(Elevação).jpg","imagens/3.%20Figura%202%20(Render%20Escola%20Externa).jpg","imagens/3.%20Figura%207%20(Corte%20Interno).jpg","imagens/3.%20Figura%208%20(Implantação).png","imagens/3.%20Figura%2012%20(Corte%20Geral).jpg","imagens/3.%20Figura%2013%20(Render%20Praça).png"]'
              data-location="Vila Aeroporto, Campinas – SP"
              data-date="Nov 2022"
              data-type="Educação Profissionalizante, Arquitetura Institucional"
              data-advisor=""
              data-team="Lara Briani"
              data-area="Arquitetura Educacional e Comunitária">
-          <img src="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/3.%20Figura%201%20(Render%20Escola).jpg"
+          <img src="imagens/3.%20Figura%201%20(Render%20Escola).jpg"
                alt="Escola Profissionalizante Vila Aeroporto – render externo"
                class="w-full h-64 object-cover"
                loading="lazy">
@@ -752,14 +752,14 @@
              onkeypress="if(event.key==='Enter')openProjectModal(4)"
              data-title="Complexo Esportivo FEPASA"
              data-description="Os eixos ferroviários tiveram grande impacto na formação urbana de Campinas. A FEPASA apresenta seus edifícios praticamente abandonados, formando um enorme vazio urbano nas proximidades de um dos maiores polos científicos do país — e com relação direta com o Terminal Rodoviário Ramos de Azevedo. O projeto parte da restauração e reocupação desses edifícios, ativando a região por meio do esporte e do lazer como formas de integração social. A proposta valoriza o patrimônio histórico-ferroviário local, revitaliza um vazio urbano estratégico e fomenta a vida urbana através de equipamentos públicos acessíveis à comunidade, devolvendo à área uma vitalidade que seu contexto central exige."
-             data-images='["https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/5.%20Figura%201%20(Render_Inicial).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/5.%20Figura%202%20(Implantação_Prox).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/5.%20Figura%203%20(Isometrica).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/5.%20Figura%204%20(Planta_Proximada).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/5.%20Figura%205%20(Corte%20Longitudinal).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/5.%20Figura%206%20(Render_Fora).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/5.%20Figura%208%20(Corte%20Aproximado_2).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/5.%20Figura%209%20(Corte%20Aproximado).jpg"]'
+             data-images='["imagens/5.%20Figura%201%20(Render_Inicial).jpg","imagens/5.%20Figura%202%20(Implantação_Prox).jpg","imagens/5.%20Figura%203%20(Isometrica).png","imagens/5.%20Figura%204%20(Planta_Proximada).jpg","imagens/5.%20Figura%205%20(Corte%20Longitudinal).jpg","imagens/5.%20Figura%206%20(Render_Fora).png","imagens/5.%20Figura%208%20(Corte%20Aproximado_2).jpg","imagens/5.%20Figura%209%20(Corte%20Aproximado).jpg"]'
              data-location="Campinas, SP"
              data-date="Jul 2021"
              data-type="Arquitetura Esportiva, Lazer"
              data-advisor=""
              data-team="Luiza Zago, Luana Coelho e Ana Cecília Motta"
              data-area="Esporte e Lazer Urbano">
-          <img src="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/5.%20Figura%201%20(Render_Inicial).jpg"
+          <img src="imagens/5.%20Figura%201%20(Render_Inicial).jpg"
                alt="Complexo Esportivo FEPASA – render inicial"
                class="w-full h-64 object-cover"
                loading="lazy">
@@ -780,14 +780,14 @@
              onkeypress="if(event.key==='Enter')openProjectModal(5)"
              data-title="Centro de Convivência das Palmeiras"
              data-description="O projeto atua nas imediações da Vila Palmeiras com o objetivo de criar um centro de convivência que atenda às necessidades da população local e revitalize a praça existente, tornando-a um atrativo para uma região atualmente degradada. A principal característica estrutural é o uso do bloco de concreto armado, com estudos detalhados de vãos e aberturas para garantir iluminação natural e ventilação adequadas. O terreno com desnível irregular e acentuado foi respondido com rampas e escadas que garantem acessibilidade universal a todos os níveis propostos. O programa foi pensado para valorizar as necessidades da região: refeitório comunitário, espaço de exposição, enfermaria e banheiros públicos — todos orientados à integração social e ao uso coletivo do espaço."
-             data-images='["https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%201%20(Render).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%202%20(Isometrica).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%203%20(Implantação%20Geral).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%204%20(Corte_Geral).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%205%20(Render%201)%20(1).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%206%20(Planta%20Geral).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%207%20(Planta%20Laje).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%208%20(Corte1).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%209%20(Corte%202).jpg"]'
+             data-images='["imagens/4.%20Figura%201%20(Render).png","imagens/4.%20Figura%202%20(Isometrica).jpg","imagens/4.%20Figura%203%20(Implantação%20Geral).png","imagens/4.%20Figura%204%20(Corte_Geral).png","imagens/4.%20Figura%205%20(Render%201)%20(1).png","imagens/4.%20Figura%206%20(Planta%20Geral).jpg","imagens/4.%20Figura%207%20(Planta%20Laje).jpg","imagens/4.%20Figura%208%20(Corte1).jpg","imagens/4.%20Figura%209%20(Corte%202).jpg"]'
              data-location="Campinas, SP"
              data-date="Mai 2022"
              data-type="Arquitetura Institucional, Acessibilidade"
              data-advisor=""
              data-team="Tiago Santos, Victoria Pagotto, Beatriz Lana e Beatrice Oliveira"
              data-area="Arquitetura para Terceira Idade">
-          <img src="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/4.%20Figura%201%20(Render).png"
+          <img src="imagens/4.%20Figura%201%20(Render).png"
                alt="Centro de Convivência das Palmeiras – render geral"
                class="w-full h-64 object-cover"
                loading="lazy">
@@ -808,14 +808,14 @@
              onkeypress="if(event.key==='Enter')openProjectModal(6)"
              data-title="Escola Andorinha"
              data-description="No intuito de estudar estruturas em argamassa armada, foi elaborada uma estrutura modular concebida para ser reproduzida em diferentes implantações — sem terreno específico, pensada para adaptabilidade. O módulo central utiliza arcos de tamanhos distintos que, combinados de diferentes maneiras, criam espaços variados e adaptáveis a diversas necessidades funcionais de uma creche para crianças de até seis anos. O sistema é composto por três elementos: o pilar (estrutura central com encaixes para as placas), as placas (paredes removíveis para caixilharia) e as pétalas (elementos internos e externos de forração). A drenagem foi integrada ao próprio desenho estrutural, com calha embutida e caixa d'água de concreto nas pétalas. O programa contempla salas de aula, refeitório, bibliotecas e banheiros com fraldários."
-             data-images='["https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%201%20(Render%20Externo).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%202%20(Render%20Interno).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%203%20(Implantação).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%204%20(Isometrica).png","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%205%20(Esquema%20Modular).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%206%20(Iso_1).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%207%20(Iso_2).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%208%20(Elevação_Esquema).jpg","https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%209%20(Elevação_Geral).jpg"]'
+             data-images='["imagens/2.%20Figura%201%20(Render%20Externo).png","imagens/2.%20Figura%202%20(Render%20Interno).png","imagens/2.%20Figura%203%20(Implantação).jpg","imagens/2.%20Figura%204%20(Isometrica).png","imagens/2.%20Figura%205%20(Esquema%20Modular).jpg","imagens/2.%20Figura%206%20(Iso_1).jpg","imagens/2.%20Figura%207%20(Iso_2).jpg","imagens/2.%20Figura%208%20(Elevação_Esquema).jpg","imagens/2.%20Figura%209%20(Elevação_Geral).jpg"]'
              data-location="Campinas, SP"
              data-date="Abr 2022"
              data-type="Estrutura Modular, Projeto Educacional"
              data-advisor=""
              data-team="Luiza Zago, Luana Coelho e Ana Cecília Motta"
              data-area="Arquitetura Educacional">
-          <img src="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/refs/heads/main/imagens/2.%20Figura%202%20(Render%20Interno).png"
+          <img src="imagens/2.%20Figura%202%20(Render%20Interno).png"
                alt="Escola Andorinha – render interno"
                class="w-full h-64 object-cover"
                loading="lazy">
@@ -876,14 +876,28 @@
         </div>
 
       </div>
+
+      <!-- Território Explicado -->
+      <a href="https://territorioportugal.netlify.app" target="_blank" rel="noopener"
+         class="mt-4 flex items-center gap-4 bg-white/5 border border-white/10 hover:border-[var(--secondary-color)] rounded-xl p-5 transition fade-in">
+        <span class="w-12 h-12 flex-shrink-0 rounded-lg bg-[#0e1411] flex items-center justify-center" aria-hidden="true">
+          <svg viewBox="0 0 20 20" width="22" height="22"><rect x="2" y="2" width="8" height="8" fill="#3ddc97"/><rect x="10" y="10" width="8" height="8" fill="#3ddc97"/></svg>
+        </span>
+        <span class="flex-1 text-left">
+          <span class="block text-[10px] tracking-widest uppercase text-[var(--secondary-color)] mb-1">Ferramenta de estudo · 2026</span>
+          <span class="block text-white font-semibold">Território Explicado</span>
+          <span class="block text-gray-300 text-sm">Guia interativo do ordenamento do território em Portugal: planos, execução, licenciamento e fundos europeus.</span>
+        </span>
+        <i class="fas fa-arrow-up-right-from-square text-gray-400" aria-hidden="true"></i>
+      </a>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-20 bg-gray-50" aria-labelledby="services-title">
+  <!-- Competências -->
+  <section id="competencias" class="py-20 bg-gray-50" aria-labelledby="competencias-title">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 fade-in">
-        <h2 id="services-title" class="text-3xl font-bold text-gray-900 mb-4">Serviços</h2>
+        <h2 id="competencias-title" class="text-3xl font-bold text-gray-900 mb-4">Competências</h2>
         <div class="w-20 h-1 bg-[var(--primary-color)] mx-auto"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -891,30 +905,34 @@
           <div class="service-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-building text-[var(--primary-color)] text-2xl" aria-hidden="true"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Projetos Arquitetônicos</h3>
-          <p class="text-gray-600">Desenvolvimento de projetos residenciais, comerciais e institucionais com foco em funcionalidade e estética.</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Projeto de Arquitetura</h3>
+          <p class="text-gray-600">Desenvolvo projetos do estudo preliminar ao detalhamento, com experiência em edifícios educacionais, esportivos e institucionais.</p>
         </div>
         <div class="service-card bg-white p-8 rounded-lg shadow-md text-center fade-in">
           <div class="service-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-city text-[var(--primary-color)] text-2xl" aria-hidden="true"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2">Planejamento Urbano</h3>
-          <p class="text-gray-600">Estudos e propostas para desenvolvimento urbano sustentável e inclusivo, com foco em projetos de larga escala.</p>
+          <p class="text-gray-600">Trabalho com planos e projetos urbanos em várias escalas e conheço o sistema de ordenamento do território português (RJIGT, PDM, PP).</p>
         </div>
         <div class="service-card bg-white p-8 rounded-lg shadow-md text-center fade-in">
           <div class="service-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-leaf text-[var(--primary-color)] text-2xl" aria-hidden="true"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Paisagismo</h3>
-          <p class="text-gray-600">Criação de espaços verdes integrados, priorizando sustentabilidade e harmonia com o ambiente.</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Paisagismo e Infraestrutura Verde</h3>
+          <p class="text-gray-600">Projeto espaços verdes e Soluções Baseadas na Natureza, tema da minha dissertação e da minha experiência em escritório de paisagismo.</p>
         </div>
         <div class="service-card bg-white p-8 rounded-lg shadow-md text-center fade-in">
           <div class="service-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-landmark text-[var(--primary-color)] text-2xl" aria-hidden="true"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Patrimônio Histórico</h3>
-          <p class="text-gray-600">Consultoria e projetos de preservação e revitalização do patrimônio, enfatizando a reabilitação urbana.</p>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Patrimônio e Reabilitação</h3>
+          <p class="text-gray-600">Tenho interesse e prática em revitalizar áreas e edifícios existentes, valorizando a memória e a identidade dos lugares.</p>
         </div>
+      </div>
+      <div class="mt-14 text-center fade-in">
+        <h3 class="text-xl font-semibold text-gray-800 mb-5">Ferramentas</h3>
+        <ul class="flex flex-wrap justify-center gap-3" aria-label="Ferramentas"><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">AutoCAD</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">ArcGIS Pro</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">QGIS</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">Photoshop</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">Illustrator</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">InDesign</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">Blender</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">Python</li></ul>
       </div>
     </div>
   </section>
@@ -926,7 +944,7 @@
         <h2 id="contact-title" class="text-3xl font-bold text-gray-900 mb-4">Entre em Contato</h2>
         <div class="w-20 h-1 bg-[var(--primary-color)] mx-auto"></div>
         <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-          Tem um projeto em mente? Entre em contato e vamos conversar sobre como podemos trabalhar juntos.
+          Quer conversar sobre uma vaga, um projeto ou uma colaboração? Escreva-me e respondo assim que possível.
         </p>
       </div>
       <div class="max-w-6xl mx-auto">
@@ -1037,7 +1055,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="flex items-center mb-6 md:mb-0">
-          <img src="https://raw.githubusercontent.com/luislandrade21-and/my-la-portifolio/c99338d5252a7fed294907d3bf7613ececd0b146/imagens/Logo.svg"
+          <img src="imagens/Logo.svg"
                alt="Logo Portfólio LA"
                class="w-10 h-10 mr-2 brightness-0 invert"
                width="40" height="40"
@@ -1048,12 +1066,12 @@
           </div>
         </div>
         <nav aria-label="Links do rodapé">
-          <ul class="flex space-x-6">
+          <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2">
             <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Início</a></li>
             <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Sobre</a></li>
             <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfólio</a></li>
             <li><a href="#pesquisa" class="text-gray-400 hover:text-white transition-colors">Pesquisa</a></li>
-            <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Serviços</a></li>
+            <li><a href="#competencias" class="text-gray-400 hover:text-white transition-colors">Competências</a></li>
             <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contato</a></li>
           </ul>
         </nav>
