@@ -1,1452 +1,285 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio de Luis Andrade, arquiteto e urbanista especializado em projetos sustentáveis, paisagismo e planejamento urbano.">
-  <meta name="keywords" content="arquitetura, urbanismo, paisagismo, sustentabilidade, portfólio, Luis Andrade">
-  <meta name="author" content="Luis Andrade">
-  <meta name="robots" content="index, follow">
-
-  <!-- ✅ FIX: URLs corretas do Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://portifoliola.netlify.app/">
-  <meta property="og:title" content="Portfólio LA | Luis Andrade - Arquiteto e Urbanista">
-  <meta property="og:description" content="Portfólio de Luis Andrade, arquiteto e urbanista especializado em projetos sustentáveis, paisagismo e planejamento urbano.">
-  <meta property="og:image" content="https://static.wixstatic.com/media/ea66f0de45ec4109b5eb190bed2244d1.jpg/v1/fill/w_1024,h_1024,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea66f0de45ec4109b5eb190bed2244d1.jpg">
-
-  <!-- ✅ FIX: Twitter card URLs corretas -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://portifoliola.netlify.app/">
-  <meta property="twitter:title" content="Portfólio LA | Luis Andrade - Arquiteto e Urbanista">
-  <meta property="twitter:description" content="Portfólio de Luis Andrade, arquiteto e urbanista especializado em projetos sustentáveis, paisagismo e planejamento urbano.">
-  <meta property="twitter:image" content="https://static.wixstatic.com/media/ea66f0de45ec4109b5eb190bed2244d1.jpg/v1/fill/w_1024,h_1024,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea66f0de45ec4109b5eb190bed2244d1.jpg">
-
-  <title>Portfólio LA | Luis Andrade - Arquiteto e Urbanista</title>
-
-  <!-- ✅ FIX: canonical URL correta -->
-  <link rel="canonical" href="https://portifoliola.netlify.app/">
-
-  <!-- ✅ Favicon -->
-  <link rel="icon" href="imagens/Logo.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="imagens/Logo.svg">
-
-  <!-- ✅ Preconnect para fontes (mantido - bom para performance) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind compilado (gerado a partir do index.html; ver README) -->
-  <link rel="stylesheet" href="css/tailwind.css">
-
-  <!-- ✅ FIX: Apenas ícones necessários do Font Awesome (subset) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    :root {
-      --primary-color: #4A5568;
-      --secondary-color: #CBD5E0;
-      --dark-color: #2D3748;
-      --light-color: #f7f8fa;
-      --accent-color: #ff6b6b;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--light-color);
-      color: #333;
-      overflow-x: hidden;
-    }
-
-    /* ✅ Texto justificado apenas nas seções de conteúdo — não no hero */
-    #about p, #portfolio p, #competencias p, #contact p,
-    .text-gray-600, .text-gray-700 {
-      text-align: justify;
-      hyphens: auto;
-      -webkit-hyphens: auto;
-    }
-
-    /* ✅ scroll-behavior nativo no CSS (sem JS) */
-    html { scroll-behavior: smooth; }
-
-    .hero-image {
-      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('https://static.wixstatic.com/media/ea66f0de45ec4109b5eb190bed2244d1.jpg/v1/fill/w_1920,h_1080,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea66f0de45ec4109b5eb190bed2244d1.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      height: 100vh;
-      position: relative;
-    }
-
-    .hero-image::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
-      z-index: 1;
-    }
-
-    .hero-content { position: relative; z-index: 2; }
-
-    .portfolio-item {
-      transition: all 0.3s ease;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .portfolio-item::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.8) 100%);
-      z-index: 1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .portfolio-item:hover::before { opacity: 1; }
-
-    .portfolio-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-
-    .portfolio-item .portfolio-overlay {
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 100%;
-      padding: 20px;
-      color: white;
-      z-index: 2;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-    }
-
-    .portfolio-item:hover .portfolio-overlay { transform: translateY(0); }
-
-    /* Zoom suave da imagem no hover */
-    .portfolio-item img {
-      transition: transform 0.5s ease;
-    }
-    .portfolio-item:hover img {
-      transform: scale(1.06);
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      left: 50%;
-      width: 2px;
-      background-color: var(--secondary-color);
-      transform: translateX(-50%);
-    }
-
-    @media (max-width: 768px) {
-      .timeline::before { left: 31px; }
-    }
-
-    .nav-link { position: relative; transition: color 0.3s ease; }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0; height: 2px;
-      bottom: 0; left: 0;
-      background-color: var(--primary-color);
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after { width: 100%; }
-
-    .service-card {
-      transition: all 0.3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    }
-
-    .service-icon { transition: all 0.3s ease; }
-
-    .service-card:hover .service-icon {
-      background-color: var(--primary-color);
-      color: white;
-      transform: scale(1.1);
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* Loading */
-    .loader {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-
-    .loader.hidden { opacity: 0; visibility: hidden; }
-
-    .loader-circle {
-      width: 50px; height: 50px;
-      border: 5px solid var(--secondary-color);
-      border-top-color: var(--primary-color);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* Scroll to top */
-    .scroll-top {
-      position: fixed;
-      bottom: 30px; right: 30px;
-      width: 50px; height: 50px;
-      background-color: var(--primary-color);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 99;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      border: none;
-    }
-
-    .scroll-top.visible { opacity: 1; visibility: visible; }
-    /* Esconde o botão de subir quando o popup está aberto */
-    body.modal-open .scroll-top { opacity: 0 !important; visibility: hidden !important; }
-    .scroll-top:hover { background-color: var(--dark-color); transform: translateY(-5px); }
-
-    /* Form */
-    .form-control { transition: all 0.3s ease; }
-    .form-control:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(84, 108, 140, 0.2);
-      outline: none;
-    }
-
-    /* ===== AFIAR: cantos retos em todo o site (exceto círculos) ===== */
-    .rounded-lg, .rounded-xl, .rounded-md, .rounded, .rounded-b-xl, .rounded-t-xl,
-    .portfolio-item, .archd-tag, button, input, textarea, .bg-white.rounded-lg {
-      border-radius: 0 !important;
-    }
-    /* Mantém circulares os elementos que devem sê-lo */
-    .rounded-full, .scroll-top-btn, [class*="rounded-full"] {
-      border-radius: 9999px !important;
-    }
-
-    .modal { transition: all 0.3s ease; }
-    .archd-backdrop { background: rgba(15, 15, 17, 0.96); }
-    .archd-stage { background: transparent; min-height: 300px; }
-    .archd-panel { background: #ffffff; border-radius: 2px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); max-height: 100%; }
-    /* Gradiente para o texto do cabeçalho ficar legível sobre a imagem */
-    .archd-header { background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0)); }
-    .archd-tags { background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0)); }
-    .archd-tag {
-      display: inline-block;
-      background: rgba(255,255,255,0.92);
-      color: #1a1a1a;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      padding: 4px 11px;
-      pointer-events: none;
-    }
-
-    /* Carousel */
-    .carousel-container { position: relative; overflow: hidden; }
-    .carousel-track { display: flex; transition: transform 0.3s ease; height: 100%; }
-    .carousel-slide { min-width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-    .carousel-slide img { width: 100%; height: 100%; object-fit: contain; background: #0e0e0e; }
-
-    .carousel-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.4);
-      color: rgba(255,255,255,0.85);
-      border: none;
-      width: 44px; height: 44px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      font-size: 16px;
-      transition: all 0.2s ease;
-      z-index: 15;
-    }
-
-    .carousel-nav:hover { background-color: rgba(0,0,0,0.7); color: #fff; }
-    .carousel-prev { left: 0; height: 100%; width: 60px; }
-    .carousel-next { right: 0; height: 100%; width: 60px; }
-
-    /* Thumbnails */
-    .thumbnail-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-      justify-content: center;
-    }
-
-    .thumbnail {
-      width: 80px; height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-      cursor: pointer;
-      opacity: 0.7;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .thumbnail:hover, .thumbnail.active { opacity: 1; border-color: var(--primary-color); }
-
-    /* Project navigation */
-    .project-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      width: 50px; height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      font-size: 20px;
-      transition: background-color 0.3s ease;
-      z-index: 20;
-    }
-
-    .project-nav:hover { background-color: rgba(0,0,0,0.8); }
-    .project-nav.prev { left: 10px; }
-    .project-nav.next { right: 10px; }
-
-    .project-nav-title {
-      position: absolute;
-      background-color: rgba(0,0,0,0.7);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 4px;
-      font-size: 14px;
-      white-space: nowrap;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .project-nav:hover .project-nav-title { opacity: 1; }
-    .project-nav.prev .project-nav-title { right: 60px; top: 50%; transform: translateY(-50%); }
-    .project-nav.next .project-nav-title { left: 60px; top: 50%; transform: translateY(-50%); }
-
-    /* ✅ REMOVIDO: placeholder-project (6º projeto removido) */
-
-    /* Wide modal */
-    .wider-modal {
-      max-width: 90vw;
-      width: 1200px;
-    }
-
-    @media (max-width: 1280px) { .wider-modal { max-width: 95vw; width: 1000px; } }
-    @media (max-width: 1024px) { .wider-modal { max-width: 95vw; width: 800px; } }
-
-    @media (max-width: 768px) {
-      .hero-image { background-attachment: scroll; }
-      .project-nav { width: 40px; height: 40px; font-size: 16px; }
-      .carousel-nav { width: 44px; }
-      .carousel-prev { left: 0; }
-      .carousel-next { right: 0; }
-    }
-
-    /* Modal escuro — responsivo: empilha imagem em cima, painel em baixo */
-    @media (max-width: 1023px) {
-      .archd-modal { flex-direction: column; max-height: 94vh; }
-      .archd-panel { width: 100%; border-left: none; border-top: 1px solid rgba(255,255,255,0.08); max-height: 40vh; }
-      .carousel-slide { height: 52vh; max-height: 52vh; }
-      .archd-header h2 { font-size: 1.05rem; }
-    }
-
-    /* ✅ NOVO: Estilo de foco para acessibilidade */
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid var(--primary-color);
-      outline-offset: 2px;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luis Andrade · Arquiteto e Urbanista</title>
+<meta name="description" content="Portfólio de Luis Andrade, arquiteto e urbanista. Mestre em Ordenamento do Território e Urbanismo pela Universidade de Lisboa. Projetos entre Brasil e Portugal, do edifício ao território.">
+<link rel="canonical" href="https://portifoliola.netlify.app/">
+<meta property="og:title" content="Luis Andrade · Arquiteto e Urbanista">
+<meta property="og:description" content="A cidade não se desenha sobre as pessoas, desenha-se com elas.">
+<meta property="og:url" content="https://portifoliola.netlify.app/">
+<link rel="icon" href="imagens/Logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
+<a class="skip" href="#conteudo">Saltar para o conteúdo</a>
 
-  <!-- Loading Screen -->
-  <div class="loader" id="loader" role="status" aria-label="Carregando">
-    <div class="loader-circle"></div>
+<nav class="nav" id="nav" aria-label="Principal">
+  <a href="#inicio" class="brand"><img src="imagens/Logo.svg" alt="" width="40" height="40"><span>Portfólio LA</span></a>
+  <button class="navbtn" type="button" aria-expanded="false" aria-controls="menu" id="navbtn">Menu</button>
+  <ul id="menu">
+    <li><a class="l" href="#inicio">Início</a></li>
+    <li><a class="l" href="#sobre">Sobre</a></li>
+    <li><a class="l" href="#projetos">Projetos</a></li>
+    <li><a class="l" href="#estudos">Estudos</a></li>
+    <li><a class="l" href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="inicio">
+  <img class="map" src="img/lisboa.jpg" alt="Ortofotomapa da Grande Lisboa a tons de cinza, de Odivelas e Loures ao estuário do Tejo">
+  <div class="who">
+    <h1>Luis Andrade</h1>
+    <span class="tag">Arquiteto e Urbanista</span>
   </div>
-
-  <!-- ✅ Scroll to Top Button (button para acessibilidade) -->
-  <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <i class="fas fa-arrow-up" aria-hidden="true"></i>
-  </button>
-
-  <!-- Navigation -->
-  <nav class="fixed w-full bg-white shadow-md z-50 transition-all duration-300" id="navbar" role="navigation" aria-label="Menu principal">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex items-center">
-          <img src="imagens/Logo.svg"
-               alt="Logo Portfólio LA"
-               class="w-10 h-10 mr-2"
-               width="40" height="40">
-          <span class="text-xl font-bold text-[var(--primary-color)]">Portfólio LA</span>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#home" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Início</a>
-          <a href="#about" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Sobre</a>
-          <a href="#portfolio" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Portfólio</a>
-          <a href="#pesquisa" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Pesquisa</a>
-          <a href="#competencias" class="nav-link text-gray-700 hover:text-[var(--primary-color)] px-3 py-2">Competências</a>
-          <a href="#contact" class="nav-link bg-[var(--primary-color)] text-white px-4 py-2 rounded-lg hover:bg-[var(--dark-color)] transition duration-300">Contato</a>
-        </div>
-        <div class="md:hidden flex items-center">
-          <button id="menu-toggle" class="text-gray-700 hover:text-blue-600" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-            <i class="fas fa-bars text-xl text-[var(--secondary-color)]" aria-hidden="true"></i>
-          </button>
-        </div>
+  <div class="manifesto">
+    <p class="q">A cidade não se desenha sobre as pessoas, desenha-se com elas.</p>
+    <div class="row">
+      <span>Mestre em Ordenamento do Território e Urbanismo pela Universidade de Lisboa. Paisagismo, patrimônio histórico e planejamento urbano sustentável, entre Brasil e Portugal.</span>
+      <div class="btns">
+        <a class="btn dark" href="#projetos">Ver projetos →</a>
+        <a class="btn" href="cv/luis-andrade-CV-2026.pdf" target="_blank" rel="noopener">Baixar CV</a>
       </div>
     </div>
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg" role="menu">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Início</a>
-        <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Sobre</a>
-        <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Portfólio</a>
-        <a href="#pesquisa" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Pesquisa</a>
-        <a href="#competencias" class="block px-3 py-2 text-gray-700 hover:text-[var(--primary-color)]" role="menuitem">Competências</a>
-        <a href="#contact" class="block px-3 py-2 bg-[var(--primary-color)] text-white rounded-lg hover:bg-[var(--dark-color)] transition duration-300" role="menuitem">Contato</a>
-      </div>
+  </div>
+  <span class="credit">GRANDE LISBOA · 38°46′N 9°08′W · ORTOFOTOMAPA 2018, DGT</span>
+</header>
+
+<main id="conteudo">
+
+<section class="reach" aria-label="Abrangência">
+  <div class="in">
+    <div class="axis">
+      <svg width="120" height="44" viewBox="0 0 120 44" aria-hidden="true"><circle cx="16" cy="22" r="5" fill="#2d3748"/><path d="M22 22 C 50 2, 70 2, 98 22" fill="none" stroke="#2d3748" stroke-width="1.2" stroke-dasharray="3 4"/><circle cx="104" cy="22" r="5" fill="none" stroke="#2d3748" stroke-width="1.5"/></svg>
+      <div><b>Entre Brasil e Portugal</b><span>Campinas, Vitória, Lisboa, Odivelas, Loures</span></div>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero-image pt-16" aria-label="Apresentação">
-    <div class="h-full flex items-center justify-center hero-content">
-      <div class="text-center px-4 fade-in">
-        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Luis Andrade</h1>
-        <h2 class="text-2xl md:text-3xl text-blue-300 mb-4">Arquiteto e Urbanista</h2>
-        <p class="text-base md:text-lg text-blue-200 mb-6 font-light tracking-wide">
-          Mestre em Ordenamento do Território e Urbanismo · Universidade de Lisboa
-        </p>
-        <p class="text-lg md:text-xl text-white max-w-2xl mx-auto mb-8">
-          Especializado em paisagismo, patrimônio histórico e planejamento urbano sustentável, com experiência entre Brasil e Portugal.
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="#portfolio" class="inline-block bg-[var(--primary-color)] hover:bg-[var(--dark-color)] text-white font-medium py-3 px-6 rounded-lg transition duration-300">
-            Ver Portfólio
-          </a>
-          <a href="#contact" class="inline-block bg-transparent border-2 border-white hover:bg-white hover:text-[var(--primary-color)] text-white font-medium py-3 px-6 rounded-lg transition duration-300">
-            Entre em Contato
-          </a>
-          <!-- ✅ Botão CV ativo -->
-          <a href="cv/luis-andrade-CV-2026.pdf"
-             download
-             class="inline-flex items-center gap-2 bg-transparent border-2 border-blue-300 hover:bg-blue-300 hover:text-[var(--dark-color)] text-blue-200 font-medium py-3 px-6 rounded-lg transition duration-300">
-            <i class="fas fa-file-pdf" aria-hidden="true"></i>
-            Baixar CV
-          </a>
-        </div>
-        <!-- ✅ Link discreto para o portfólio em PDF -->
-        <p class="text-xs text-blue-200 mt-4 opacity-80 text-center">
-          <a href="cv/luis-andrade-portifolio-2025.pdf"
-             download
-             class="underline underline-offset-2 hover:opacity-100 transition-opacity duration-200 cursor-pointer">
-            Ver Portfólio completo em PDF
-          </a>
-        </p>
-      </div>
+    <div class="axis">
+      <svg width="120" height="44" viewBox="0 0 120 44" aria-hidden="true"><rect x="2" y="16" width="10" height="12" fill="#2d3748"/><rect x="12" y="16" width="18" height="12" fill="none" stroke="#2d3748" stroke-width="1.2"/><rect x="30" y="16" width="32" height="12" fill="#2d3748"/><rect x="62" y="16" width="56" height="12" fill="none" stroke="#2d3748" stroke-width="1.2"/></svg>
+      <div><b>Do edifício ao território</b><span>Arquitetura, projeto urbano, planejamento</span></div>
     </div>
-    <div class="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-      <a href="#about" class="text-white" aria-label="Ir para seção Sobre">
-        <i class="fas fa-chevron-down text-2xl" aria-hidden="true"></i>
-      </a>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-white" aria-labelledby="about-title">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in">
-        <h2 id="about-title" class="text-3xl font-bold text-gray-900 mb-4">Sobre Mim</h2>
-        <div class="w-20 h-1 bg-[var(--secondary-color)] mx-auto"></div>
-      </div>
-      <div class="flex flex-col md:flex-row items-center gap-12 fade-in">
-        <div class="md:w-1/3">
-          <!-- ✅ FIX: loading="lazy" + dimensões explícitas -->
-          <img src="https://static.wixstatic.com/media/f6c6d7_1b2fb8ff5204471a9a677d232c610325~mv2.jpg/v1/crop/x_0,y_1,w_576,h_574/fill/w_487,h_484,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202025-07-28%20at%2015_42_edited.jpg"
-               alt="Foto de Luis Andrade, Arquiteto e Urbanista"
-               class="rounded-full w-64 h-64 object-cover mx-auto shadow-xl"
-               width="256" height="256"
-               loading="lazy">
-        </div>
-        <div class="md:w-2/3">
-          <p class="text-lg text-gray-600 mb-8">
-            Especializado em paisagismo e planejamento urbano, com foco na preservação do patrimônio histórico-cultural.
-            A formação acadêmica foi fundamental para ampliar meu embasamento teórico e minha busca contínua por conhecimento
-            nas diversas áreas da Arquitetura e Urbanismo.
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                <i class="fas fa-star mr-2 text-[var(--secondary-color)]" aria-hidden="true"></i> Interesses
-              </h3>
-              <ul class="space-y-2">
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Planejamento e projeto urbano</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Paisagismo e paisagem urbana</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Patrimônio histórico-cultural</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2" aria-hidden="true"></i>Projetos sustentáveis e inovadores</li>
-              </ul>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                <i class="fas fa-language mr-2 text-[var(--secondary-color)]" aria-hidden="true"></i> Idiomas
-              </h3>
-              <div class="mb-4">
-                <div class="flex justify-between mb-1">
-                  <span class="text-gray-700">Português</span>
-                  <span class="text-gray-500">Nativo</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Nível de Português">
-                  <div class="bg-[var(--primary-color)] h-2.5 rounded-full" style="width:100%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between mb-1">
-                  <span class="text-gray-700">Inglês</span>
-                  <span class="text-gray-500">C1</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Nível de Inglês C1">
-                  <div class="bg-[var(--primary-color)] h-2.5 rounded-full" style="width:80%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mt-8">
-            <a href="#contact" class="inline-flex items-center text-[var(--primary-color)] font-medium hover:text-[var(--dark-color)]">
-              Entre em contato comigo
-              <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section class="py-20 bg-gray-50" aria-labelledby="exp-title">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in">
-        <h2 id="exp-title" class="text-3xl font-bold text-gray-900 mb-4">Formação e Experiências</h2>
-        <div class="w-20 h-1 bg-[var(--primary-color)] mx-auto"></div>
-      </div>
-      <div class="relative timeline">
-        <div class="mb-12 flex flex-col md:flex-row items-start fade-in">
-          <div class="md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <h3 class="text-xl font-semibold text-[var(--primary-color)]">Bacharelado em Arquitetura e Urbanismo</h3>
-              <p class="text-gray-500 mb-2">Jan 2019 – Dez 2023</p>
-              <p class="text-gray-600">PUC-Campinas</p>
-            </div>
-          </div>
-          <div class="hidden md:block md:w-1/2"></div>
-        </div>
-        <div class="mb-12 flex flex-col md:flex-row items-start fade-in">
-          <div class="hidden md:block md:w-1/2"></div>
-          <div class="md:w-1/2 md:pl-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <h3 class="text-xl font-semibold text-[var(--primary-color)]">Mestrado em Ordenamento do Território e Urbanismo</h3>
-              <p class="text-gray-500 mb-2">Set 2024 – Jul 2026</p>
-              <p class="text-gray-600">Universidade de Lisboa</p>
-            </div>
-          </div>
-        </div>
-        <div class="mb-12 flex flex-col md:flex-row items-start fade-in">
-          <div class="md:w-1/2 md:pr-8 md:text-right mb-4 md:mb-0">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <h3 class="text-xl font-semibold text-[var(--primary-color)]">Assistente Estagiário Universitário</h3>
-              <p class="text-gray-500 mb-2">Fev 2022 – Jun 2022</p>
-              <p class="text-gray-600">Extensão HABITAR 60+</p>
-            </div>
-          </div>
-          <div class="hidden md:block md:w-1/2"></div>
-        </div>
-        <div class="flex flex-col md:flex-row items-start fade-in">
-          <div class="hidden md:block md:w-1/2"></div>
-          <div class="md:w-1/2 md:pl-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-              <h3 class="text-xl font-semibold text-[var(--primary-color)]">Assistente Estagiário Universitário</h3>
-              <p class="text-gray-500 mb-2">Fev 2023 – Jan 2024</p>
-              <p class="text-gray-600">Marcelo Novaes Paisagismo – Campinas</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="py-20 bg-white" aria-labelledby="portfolio-title">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in">
-        <h2 id="portfolio-title" class="text-3xl font-bold text-gray-900 mb-4">Projetos</h2>
-        <div class="w-20 h-1 bg-[var(--primary-color)] mx-auto"></div>
-        <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-          Uma seleção dos meus trabalhos acadêmicos e profissionais em arquitetura e urbanismo.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
-        
-        <!-- Projeto 1 -->
-        <div class="portfolio-item rounded-lg overflow-hidden shadow-lg cursor-pointer fade-in"
-             onclick="openProjectModal(0)"
-             role="button" tabindex="0"
-             aria-label="Ver detalhes: Abre Orlas - O samba do Povo"
-             onkeypress="if(event.key==='Enter')openProjectModal(0)"
-             data-title="Abre Orlas: O samba do Povo"
-             data-description="Trabalho Final de Graduação desenvolvido como parte do Plano de Desenvolvimento Urbano da Região Metropolitana de Vitória. O projeto propõe a reabilitação urbana da orla do rio Santa Maria no Sambão do Povo — região historicamente ligada à cultura do samba e à vida comunitária da cidade —, resgatando a relação da população com a margem do rio por meio de espaços públicos de convivência, cultura e lazer. A proposta articula mobilidade ativa, paisagismo integrado e identidade cultural local, com ênfase na inclusão social e na valorização da memória coletiva do lugar. O projeto foi reconhecido no contexto do PDU da Região Metropolitana de Vitória como intervenção de escala urbana com impacto social direto."
-             data-images='["imagens/1.%20Figura%2001%20%5BNova%20orla.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","imagens/1.%20Figura%2002%20%5BIsométrica%20geral.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D%20(MENOR).png","imagens/1.%20Figura%2003%20%5BSíntese%20de%20estudo%20da%20região.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D.png","imagens/1.%20Figura%2004%20%5BProposta%20geral.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D.png","imagens/1.%20Figura%2005%20%5BImplantação%20aproximada.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D.png","imagens/1.%20Figura%2006%20%5BConvívio%20na%20orla.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","imagens/1.%20Figura%2007%20%5BEstrutura%20Proposta.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","imagens/1.%20Figura%2008%20%5BDiversidade%20de%20momentos.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png","imagens/1.%20Figura%2009%20%5BNova%20Avenida.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D%20-1.png"]'
-             data-location="Sambão do Povo, Vitória – ES"
-             data-date="Dez 2023"
-             data-type="Revitalização, Projeto Urbano, Social"
-             data-advisor="Claudio Manetti"
-             data-team=""
-             data-area="Trabalho Final de Graduação – PUC-Campinas"
-             data-pdf="cv/abre-orlas-caderno.pdf">
-          <!-- ✅ FIX: loading="lazy" nas imagens dos cards -->
-          <img src="imagens/1.%20Figura%2001%20%5BNova%20orla.%20Autor%20Luis%20Andrade%20(2023).%20Desenho%20autoral%5D-1.png"
-               alt="Abre Orlas: O samba do Povo – render da nova orla"
-               class="w-full h-64 object-cover"
-               loading="lazy">
-          <div class="p-6 bg-white">
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Abre Orlas: O samba do Povo</h3>
-            <p class="text-gray-600"><span class="font-medium text-[var(--primary-color)]">Trabalho Final de Graduação</span> · Revitalização Urbana – 2023</p>
-          </div>
-          <div class="portfolio-overlay">
-            <h3 class="text-xl font-semibold mb-2">Ver detalhes</h3>
-            <p class="text-sm">Clique para mais informações</p>
-          </div>
-        </div>
-        <!-- Projeto NOVO: Parque do Olival -->
-        <div class="portfolio-item rounded-lg overflow-hidden shadow-lg cursor-pointer fade-in"
-             onclick="openProjectModal(1)"
-             role="button" tabindex="0"
-             aria-label="Ver detalhes: Parque do Olival"
-             onkeypress="if(event.key==='Enter')openProjectModal(1)"
-             data-title="Parque do Olival"
-             data-description="Projeto de formação do Mestrado em Ordenamento do Território e Urbanismo (MOTU), inserido na reformulação da coroa norte de Lisboa. Partindo da visão de costurar um território há muito negligenciado ao tecido metropolitano, foi selecionada — após um estudo detalhado da região — uma área intersticial em Odivelas, entre fragmentos urbanos e ecológicos, classificada pelo PDM como espaço verde a consolidar e integrada num sistema de corredores estruturantes. A proposta trabalha o espaço através de diferentes sistemas (verde, mobilidade, ecológico e edificado) que orientam sua estruturação, integrando ecologia e espaço urbano num modelo de baixa densidade orientado ao pedestre. O desenho apoia-se em estudos de perequação e na gestão do risco associado à linha de água, propondo um novo bairro misto que reforça a coesão sem apagar a identidade do lugar. O momento inicial de diagnóstico foi desenvolvido em dupla com Maisha Rahman."
-             data-images='["imagens/6.%20Olival%20Figura%201.png","imagens/6.%20Olival%20Figura%202.png","imagens/6.%20Olival%20Figura%203.png","imagens/6.%20Olival%20Figura%204.png","imagens/6.%20Olival%20Figura%205.png","imagens/6.%20Olival%20Figura%206.png","imagens/6.%20Olival%20Figura%207.png","imagens/6.%20Olival%20Figura%208.png","imagens/6.%20Olival%20Figura%209.png"]'
-             data-location="Odivelas, Lisboa – Portugal"
-             data-date="2025"
-             data-type="Projeto Urbano, Planejamento Territorial"
-             data-advisor=""
-             data-team="Diagnóstico em dupla com Maisha Rahman (MOTU)"
-             data-area="Urbanismo e Estrutura Verde"
-             data-pdf="cv/parque-olival-caderno.pdf">
-          <img src="imagens/6.%20Olival%20Figura%201.png"
-               alt="Parque do Olival – imagem principal"
-               class="w-full h-64 object-cover"
-               loading="lazy">
-          <div class="p-6 bg-white">
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Parque do Olival</h3>
-            <p class="text-gray-600">Projeto Urbano · Coroa Norte de Lisboa – 2025</p>
-          </div>
-          <div class="portfolio-overlay">
-            <h3 class="text-xl font-semibold mb-2">Ver detalhes</h3>
-            <p class="text-sm">Clique para mais informações</p>
-          </div>
-        </div>
-        <!-- Projeto NOVO: Loures Gateway -->
-        <div class="portfolio-item rounded-lg overflow-hidden shadow-lg cursor-pointer fade-in"
-             onclick="openProjectModal(2)"
-             role="button" tabindex="0"
-             aria-label="Ver detalhes: Loures Gateway"
-             onkeypress="if(event.key==='Enter')openProjectModal(2)"
-             data-title="Loures Gateway"
-             data-description="Projeto de formação do Mestrado em Ordenamento do Território e Urbanismo (MOTU), desenvolvido em equipe com Maisha Rahman e Alexander Zoheir, em parceria com o Município de Loures. O trabalho parte de uma premissa clara: a desativação e o descolamento do aeroporto liberará vastas áreas e gerará consequências profundas, abrindo uma oportunidade única de desenvolvimento para a região. O projeto propõe uma estratégia de regeneração que transforma o tecido industrial existente num gateway diverso, verde e de uso misto, assente em cinco diretrizes — conectividade ecológica, coesão urbana, identidade do lugar, mobilidade sustentável e regeneração urbano-ambiental. A partir do diagnóstico e da análise SWOT, foi selecionada uma área junto a Camarate e adjacente à CRIL para o desenvolvimento de um projeto de unidade de execução, ressignificando um espaço de transição hoje marcado pela logística e pela fragmentação."
-             data-images='["imagens/7.%20Loures%20Figura%201.png","imagens/7.%20Loures%20Figura%202.png","imagens/7.%20Loures%20Figura%203.png","imagens/7.%20Loures%20Figura%204.png","imagens/7.%20Loures%20Figura%205.png","imagens/7.%20Loures%20Figura%206.png","imagens/7.%20Loures%20Figura%207.png"]'
-             data-location="Loures – Portugal"
-             data-date="2025"
-             data-type="Planejamento Urbano, Diagnóstico Territorial"
-             data-advisor=""
-             data-team="Equipe: Maisha Rahman e Alexander Zoheir (MOTU)"
-             data-area="Planejamento e Regeneração Urbana"
-             data-pdf="cv/loures-gateway-caderno.pdf">
-          <img src="imagens/7.%20Loures%20Figura%201.png"
-               alt="Loures Gateway – imagem principal"
-               class="w-full h-64 object-cover"
-               loading="lazy">
-          <div class="p-6 bg-white">
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Loures Gateway</h3>
-            <p class="text-gray-600">Planejamento Urbano · Loures – 2025</p>
-          </div>
-          <div class="portfolio-overlay">
-            <h3 class="text-xl font-semibold mb-2">Ver detalhes</h3>
-            <p class="text-sm">Clique para mais informações</p>
-          </div>
-        </div>
-        <!-- Projeto 3 -->
-        <div class="portfolio-item rounded-lg overflow-hidden shadow-lg cursor-pointer fade-in"
-             onclick="openProjectModal(3)"
-             role="button" tabindex="0"
-             aria-label="Ver detalhes: Escola Profissionalizante Vila Aeroporto"
-             onkeypress="if(event.key==='Enter')openProjectModal(3)"
-             data-title="Escola Profissionalizante Vila Aeroporto"
-             data-description="Na Vila Aeroporto em Campinas existe uma região abrangida por um projeto de parque linear. O projeto propõe uma escola especializada em cursos técnicos voltados para Engenharias e Arquitetura, integrada ao percurso do parque, com entradas de acesso que conectam os espaços educacionais às áreas de lazer. O terreno apresenta dois desafios centrais: um afluente do Rio Campivari que delimita área de proteção ambiental, e uma linha de alta tensão que restringe programas de estadia prolongada — ambos respondidos com soluções criativas de organização espacial. O programa contempla salas de aula e ateliê, refeitório, biblioteca, auditório comunitário e centro de convivência no lado oposto do córrego, com bicicletário, rampas de skate, parquinho e quadra poliesportiva. A circulação é garantida por sistema de rampas centrais que dão acesso universal a todos os programas."
-             data-images='["imagens/3.%20Figura%201%20(Render%20Escola).jpg","imagens/3.%20Figura%202%20(Diagrama1).jpg","imagens/3.%20Figura%203%20(Diagrama2).jpg","imagens/3.%20Figura%204%20(Diagrama3).jpg","imagens/3.%20Figura%205%20(Diagrama4).jpg","imagens/3.%20Figura%206%20(Elevação).jpg","imagens/3.%20Figura%202%20(Render%20Escola%20Externa).jpg","imagens/3.%20Figura%207%20(Corte%20Interno).jpg","imagens/3.%20Figura%208%20(Implantação).png","imagens/3.%20Figura%2012%20(Corte%20Geral).jpg","imagens/3.%20Figura%2013%20(Render%20Praça).png"]'
-             data-location="Vila Aeroporto, Campinas – SP"
-             data-date="Nov 2022"
-             data-type="Educação Profissionalizante, Arquitetura Institucional"
-             data-advisor=""
-             data-team="Lara Briani"
-             data-area="Arquitetura Educacional e Comunitária">
-          <img src="imagens/3.%20Figura%201%20(Render%20Escola).jpg"
-               alt="Escola Profissionalizante Vila Aeroporto – render externo"
-               class="w-full h-64 object-cover"
-               loading="lazy">
-          <div class="p-6 bg-white">
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Escola Profissionalizante Vila Aeroporto</h3>
-            <p class="text-gray-600">Educação Profissionalizante, Arquitetura Institucional – 2022</p>
-          </div>
-          <div class="portfolio-overlay">
-            <h3 class="text-xl font-semibold mb-2">Ver detalhes</h3>
-            <p class="text-sm">Clique para mais informações</p>
-          </div>
-        </div>
-        <!-- Projeto 5 -->
-        <div class="portfolio-item rounded-lg overflow-hidden shadow-lg cursor-pointer fade-in"
-             onclick="openProjectModal(4)"
-             role="button" tabindex="0"
-             aria-label="Ver detalhes: Complexo Esportivo FEPASA"
-             onkeypress="if(event.key==='Enter')openProjectModal(4)"
-             data-title="Complexo Esportivo FEPASA"
-             data-description="Os eixos ferroviários tiveram grande impacto na formação urbana de Campinas. A FEPASA apresenta seus edifícios praticamente abandonados, formando um enorme vazio urbano nas proximidades de um dos maiores polos científicos do país — e com relação direta com o Terminal Rodoviário Ramos de Azevedo. O projeto parte da restauração e reocupação desses edifícios, ativando a região por meio do esporte e do lazer como formas de integração social. A proposta valoriza o patrimônio histórico-ferroviário local, revitaliza um vazio urbano estratégico e fomenta a vida urbana através de equipamentos públicos acessíveis à comunidade, devolvendo à área uma vitalidade que seu contexto central exige."
-             data-images='["imagens/5.%20Figura%201%20(Render_Inicial).jpg","imagens/5.%20Figura%202%20(Implantação_Prox).jpg","imagens/5.%20Figura%203%20(Isometrica).png","imagens/5.%20Figura%204%20(Planta_Proximada).jpg","imagens/5.%20Figura%205%20(Corte%20Longitudinal).jpg","imagens/5.%20Figura%206%20(Render_Fora).png","imagens/5.%20Figura%208%20(Corte%20Aproximado_2).jpg","imagens/5.%20Figura%209%20(Corte%20Aproximado).jpg"]'
-             data-location="Campinas, SP"
-             data-date="Jul 2021"
-             data-type="Arquitetura Esportiva, Lazer"
-             data-advisor=""
-             data-team="Luiza Zago, Luana Coelho e Ana Cecília Motta"
-             data-area="Esporte e Lazer Urbano">
-          <img src="imagens/5.%20Figura%201%20(Render_Inicial).jpg"
-               alt="Complexo Esportivo FEPASA – render inicial"
-               class="w-full h-64 object-cover"
-               loading="lazy">
-          <div class="p-6 bg-white">
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Complexo Esportivo FEPASA</h3>
-            <p class="text-gray-600">Arquitetura Esportiva, Lazer – 2021</p>
-          </div>
-          <div class="portfolio-overlay">
-            <h3 class="text-xl font-semibold mb-2">Ver detalhes</h3>
-            <p class="text-sm">Clique para mais informações</p>
-          </div>
-        </div>
-        <!-- Projeto 4 -->
-        <div class="portfolio-item rounded-lg overflow-hidden shadow-lg cursor-pointer fade-in"
-             onclick="openProjectModal(5)"
-             role="button" tabindex="0"
-             aria-label="Ver detalhes: Centro de Convivência das Palmeiras"
-             onkeypress="if(event.key==='Enter')openProjectModal(5)"
-             data-title="Centro de Convivência das Palmeiras"
-             data-description="O projeto atua nas imediações da Vila Palmeiras com o objetivo de criar um centro de convivência que atenda às necessidades da população local e revitalize a praça existente, tornando-a um atrativo para uma região atualmente degradada. A principal característica estrutural é o uso do bloco de concreto armado, com estudos detalhados de vãos e aberturas para garantir iluminação natural e ventilação adequadas. O terreno com desnível irregular e acentuado foi respondido com rampas e escadas que garantem acessibilidade universal a todos os níveis propostos. O programa foi pensado para valorizar as necessidades da região: refeitório comunitário, espaço de exposição, enfermaria e banheiros públicos — todos orientados à integração social e ao uso coletivo do espaço."
-             data-images='["imagens/4.%20Figura%201%20(Render).png","imagens/4.%20Figura%202%20(Isometrica).jpg","imagens/4.%20Figura%203%20(Implantação%20Geral).png","imagens/4.%20Figura%204%20(Corte_Geral).png","imagens/4.%20Figura%205%20(Render%201)%20(1).png","imagens/4.%20Figura%206%20(Planta%20Geral).jpg","imagens/4.%20Figura%207%20(Planta%20Laje).jpg","imagens/4.%20Figura%208%20(Corte1).jpg","imagens/4.%20Figura%209%20(Corte%202).jpg"]'
-             data-location="Campinas, SP"
-             data-date="Mai 2022"
-             data-type="Arquitetura Institucional, Acessibilidade"
-             data-advisor=""
-             data-team="Tiago Santos, Victoria Pagotto, Beatriz Lana e Beatrice Oliveira"
-             data-area="Arquitetura para Terceira Idade">
-          <img src="imagens/4.%20Figura%201%20(Render).png"
-               alt="Centro de Convivência das Palmeiras – render geral"
-               class="w-full h-64 object-cover"
-               loading="lazy">
-          <div class="p-6 bg-white">
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Centro de Convivência das Palmeiras</h3>
-            <p class="text-gray-600">Arquitetura Institucional, Acessibilidade – 2022</p>
-          </div>
-          <div class="portfolio-overlay">
-            <h3 class="text-xl font-semibold mb-2">Ver detalhes</h3>
-            <p class="text-sm">Clique para mais informações</p>
-          </div>
-        </div>
-        <!-- Projeto 2 -->
-        <div class="portfolio-item rounded-lg overflow-hidden shadow-lg cursor-pointer fade-in"
-             onclick="openProjectModal(6)"
-             role="button" tabindex="0"
-             aria-label="Ver detalhes: Escola Andorinha"
-             onkeypress="if(event.key==='Enter')openProjectModal(6)"
-             data-title="Escola Andorinha"
-             data-description="No intuito de estudar estruturas em argamassa armada, foi elaborada uma estrutura modular concebida para ser reproduzida em diferentes implantações — sem terreno específico, pensada para adaptabilidade. O módulo central utiliza arcos de tamanhos distintos que, combinados de diferentes maneiras, criam espaços variados e adaptáveis a diversas necessidades funcionais de uma creche para crianças de até seis anos. O sistema é composto por três elementos: o pilar (estrutura central com encaixes para as placas), as placas (paredes removíveis para caixilharia) e as pétalas (elementos internos e externos de forração). A drenagem foi integrada ao próprio desenho estrutural, com calha embutida e caixa d'água de concreto nas pétalas. O programa contempla salas de aula, refeitório, bibliotecas e banheiros com fraldários."
-             data-images='["imagens/2.%20Figura%201%20(Render%20Externo).png","imagens/2.%20Figura%202%20(Render%20Interno).png","imagens/2.%20Figura%203%20(Implantação).jpg","imagens/2.%20Figura%204%20(Isometrica).png","imagens/2.%20Figura%205%20(Esquema%20Modular).jpg","imagens/2.%20Figura%206%20(Iso_1).jpg","imagens/2.%20Figura%207%20(Iso_2).jpg","imagens/2.%20Figura%208%20(Elevação_Esquema).jpg","imagens/2.%20Figura%209%20(Elevação_Geral).jpg"]'
-             data-location="Campinas, SP"
-             data-date="Abr 2022"
-             data-type="Estrutura Modular, Projeto Educacional"
-             data-advisor=""
-             data-team="Luiza Zago, Luana Coelho e Ana Cecília Motta"
-             data-area="Arquitetura Educacional">
-          <img src="imagens/2.%20Figura%202%20(Render%20Interno).png"
-               alt="Escola Andorinha – render interno"
-               class="w-full h-64 object-cover"
-               loading="lazy">
-          <div class="p-6 bg-white">
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Escola Andorinha</h3>
-            <p class="text-gray-600">Estrutura Modular, Projeto Educacional – 2022</p>
-          </div>
-          <div class="portfolio-overlay">
-            <h3 class="text-xl font-semibold mb-2">Ver detalhes</h3>
-            <p class="text-sm">Clique para mais informações</p>
-          </div>
-        </div>
-
-        <!-- ✅ FIX: Placeholder 6º projeto REMOVIDO -->
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Pesquisa Section -->
-  <section id="pesquisa" class="py-12 bg-[var(--dark-color)]" aria-labelledby="pesquisa-title">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-8 fade-in">
-        <h2 id="pesquisa-title" class="text-2xl font-bold text-white mb-3">Pesquisa</h2>
-        <div class="w-16 h-1 bg-[var(--secondary-color)] mx-auto"></div>
-      </div>
-
-      <!-- Card da dissertação (compacto) -->
-      <div class="flex flex-col sm:flex-row gap-6 items-center bg-white/5 border border-white/10 rounded-xl p-5 sm:p-6 fade-in">
-
-        <!-- Capa -->
-        <a href="cv/luis-andrade-dissertacao-2026.pdf" target="_blank" rel="noopener"
-           class="block w-28 flex-shrink-0 rounded-md overflow-hidden shadow-lg hover:scale-[1.03] transition-transform duration-300"
-           aria-label="Abrir a dissertação em PDF">
-          <img src="imagens/capa-dissertacao.jpg"
-               alt="Capa da dissertação — Regenerar Infraestruturas de Transporte como Infraestrutura Verde"
-               class="w-full h-auto object-cover"
-               loading="lazy">
-        </a>
-
-        <!-- Resumo -->
-        <div class="flex-1 text-center sm:text-left">
-          <p class="text-[10px] tracking-widest uppercase text-[var(--secondary-color)] mb-1">Dissertação de Mestrado · FA.ULisboa · 2026</p>
-          <h3 class="text-lg md:text-xl font-semibold text-white mb-2 leading-snug">
-            Regenerar Infraestruturas de Transporte como Infraestrutura Verde
-          </h3>
-          <p class="text-gray-300 text-sm leading-relaxed mb-4">
-            Uma abordagem de <strong class="text-white">Soluções Baseadas na Natureza</strong> aplicada ao
-            território de Odivelas, propondo a transformação das infraestruturas de transporte em
-            <strong class="text-white">infraestrutura verde</strong>.
-          </p>
-          <a href="cv/luis-andrade-dissertacao-2026.pdf"
-             download
-             class="inline-flex items-center gap-2 bg-[var(--secondary-color)] hover:bg-white text-[var(--dark-color)] text-sm font-medium py-2 px-5 rounded-lg transition duration-300">
-            <i class="fas fa-file-pdf" aria-hidden="true"></i>
-            Baixar dissertação (PDF)
-          </a>
-        </div>
-
-      </div>
-
-      <!-- Território Explicado -->
-      <a href="https://territorioportugal.netlify.app" target="_blank" rel="noopener"
-         class="mt-4 flex items-center gap-4 bg-white/5 border border-white/10 hover:border-[var(--secondary-color)] rounded-xl p-5 transition fade-in">
-        <span class="w-12 h-12 flex-shrink-0 rounded-lg bg-[#0e1411] flex items-center justify-center" aria-hidden="true">
-          <svg viewBox="0 0 20 20" width="22" height="22"><rect x="2" y="2" width="8" height="8" fill="#3ddc97"/><rect x="10" y="10" width="8" height="8" fill="#3ddc97"/></svg>
-        </span>
-        <span class="flex-1 text-left">
-          <span class="block text-[10px] tracking-widest uppercase text-[var(--secondary-color)] mb-1">Ferramenta de estudo · 2026</span>
-          <span class="block text-white font-semibold">Território Explicado</span>
-          <span class="block text-gray-300 text-sm">Guia interativo do ordenamento do território em Portugal: planos, execução, licenciamento e fundos europeus.</span>
-        </span>
-        <i class="fas fa-arrow-up-right-from-square text-gray-400" aria-hidden="true"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- Competências -->
-  <section id="competencias" class="py-20 bg-gray-50" aria-labelledby="competencias-title">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in">
-        <h2 id="competencias-title" class="text-3xl font-bold text-gray-900 mb-4">Competências</h2>
-        <div class="w-20 h-1 bg-[var(--primary-color)] mx-auto"></div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="service-card bg-white p-8 rounded-lg shadow-md text-center fade-in">
-          <div class="service-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-building text-[var(--primary-color)] text-2xl" aria-hidden="true"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Projeto de Arquitetura</h3>
-          <p class="text-gray-600">Desenvolvo projetos do estudo preliminar ao detalhamento, com experiência em edifícios educacionais, esportivos e institucionais.</p>
-        </div>
-        <div class="service-card bg-white p-8 rounded-lg shadow-md text-center fade-in">
-          <div class="service-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-city text-[var(--primary-color)] text-2xl" aria-hidden="true"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Planejamento Urbano</h3>
-          <p class="text-gray-600">Trabalho com planos e projetos urbanos em várias escalas e conheço o sistema de ordenamento do território português (RJIGT, PDM, PP).</p>
-        </div>
-        <div class="service-card bg-white p-8 rounded-lg shadow-md text-center fade-in">
-          <div class="service-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-leaf text-[var(--primary-color)] text-2xl" aria-hidden="true"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Paisagismo e Infraestrutura Verde</h3>
-          <p class="text-gray-600">Projeto espaços verdes e Soluções Baseadas na Natureza, tema da minha dissertação e da minha experiência em escritório de paisagismo.</p>
-        </div>
-        <div class="service-card bg-white p-8 rounded-lg shadow-md text-center fade-in">
-          <div class="service-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-landmark text-[var(--primary-color)] text-2xl" aria-hidden="true"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Patrimônio e Reabilitação</h3>
-          <p class="text-gray-600">Tenho interesse e prática em revitalizar áreas e edifícios existentes, valorizando a memória e a identidade dos lugares.</p>
-        </div>
-      </div>
-      <div class="mt-14 text-center fade-in">
-        <h3 class="text-xl font-semibold text-gray-800 mb-5">Ferramentas</h3>
-        <ul class="flex flex-wrap justify-center gap-3" aria-label="Ferramentas"><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">AutoCAD</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">ArcGIS Pro</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">QGIS</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">Photoshop</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">Illustrator</li><li class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 text-sm font-medium">InDesign</li></ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-white" aria-labelledby="contact-title">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 fade-in">
-        <h2 id="contact-title" class="text-3xl font-bold text-gray-900 mb-4">Entre em Contato</h2>
-        <div class="w-20 h-1 bg-[var(--primary-color)] mx-auto"></div>
-        <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-          Quer conversar sobre uma vaga, um projeto ou uma colaboração? Escreva-me e respondo assim que possível.
-        </p>
-      </div>
-      <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col md:flex-row gap-8">
-          <div class="bg-gray-50 p-8 rounded-lg shadow-md md:w-1/2 fade-in">
-            <h3 class="text-xl font-semibold text-gray-800 mb-6">Informações de Contato</h3>
-            <div class="space-y-6">
-              <div class="flex items-start">
-                <div class="flex-shrink-0">
-                  <i class="fas fa-map-marker-alt text-[var(--primary-color)] text-xl mt-1" aria-hidden="true"></i>
-                </div>
-                <div class="ml-4">
-                  <h4 class="text-lg font-medium text-gray-800">Localização</h4>
-                  <p class="text-gray-600">Lisboa, Portugal</p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <div class="flex-shrink-0">
-                  <i class="fas fa-phone-alt text-[var(--primary-color)] text-xl mt-1" aria-hidden="true"></i>
-                </div>
-                <div class="ml-4">
-                  <h4 class="text-lg font-medium text-gray-800">Telefone</h4>
-                  <p class="text-gray-600">
-                    <a href="tel:+351912113920" class="hover:text-[var(--primary-color)] transition-colors">+351 912 113 920</a>
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <div class="flex-shrink-0">
-                  <i class="fas fa-envelope text-[var(--primary-color)] text-xl mt-1" aria-hidden="true"></i>
-                </div>
-                <div class="ml-4">
-                  <h4 class="text-lg font-medium text-gray-800">Email</h4>
-                  <p class="text-gray-600">
-                    <a href="mailto:luis.ela.arquitetura@hotmail.com" class="hover:text-[var(--primary-color)] transition-colors">luis.ela.arquitetura@hotmail.com</a>
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-start">
-                <div class="flex-shrink-0">
-                  <i class="fab fa-linkedin text-[var(--primary-color)] text-xl mt-1" aria-hidden="true"></i>
-                </div>
-                <div class="ml-4">
-                  <h4 class="text-lg font-medium text-gray-800">LinkedIn</h4>
-                  <p class="text-gray-600">
-                    <a href="https://www.linkedin.com/in/luis-e-l-andrade-a10b583b4/" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--primary-color)] transition-colors">Luis Andrade</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ✅ FIX: Formulário com integração Netlify nativa -->
-          <div class="bg-gray-50 p-8 rounded-lg shadow-md md:w-1/2 fade-in">
-            <h3 class="text-xl font-semibold text-gray-800 mb-6">Envie uma Mensagem</h3>
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form" novalidate>
-              <input type="hidden" name="form-name" value="contact">
-              <p class="hidden">
-                <label>Não preencha este campo: <input name="bot-field"></label>
-              </p>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">Primeiro Nome <span class="text-red-500">*</span></label>
-                  <input type="text" id="firstName" name="firstName" required
-                         class="form-control w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
-                         placeholder="Luis">
-                </div>
-                <div>
-                  <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Sobrenome</label>
-                  <input type="text" id="lastName" name="lastName"
-                         class="form-control w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
-                         placeholder="Andrade">
-                </div>
-              </div>
-              <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
-                <input type="email" id="email" name="email" required
-                       class="form-control w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
-                       placeholder="seu@email.com">
-              </div>
-              <div class="mb-6">
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem <span class="text-red-500">*</span></label>
-                <textarea id="message" name="message" rows="5" required
-                          class="form-control w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none resize-none"
-                          placeholder="Fale sobre o seu projeto..."></textarea>
-              </div>
-              <button type="submit"
-                      class="w-full bg-[var(--primary-color)] hover:bg-[var(--dark-color)] text-white font-medium py-3 px-6 rounded-lg transition duration-300">
-                Enviar Mensagem
-              </button>
-            </form>
-            <div id="form-success" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700" role="alert">
-              <i class="fas fa-check-circle mr-2" aria-hidden="true"></i>
-              Obrigado pela mensagem! Entrarei em contato em breve.
-            </div>
-            <div id="form-error" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700" role="alert">
-              <i class="fas fa-exclamation-circle mr-2" aria-hidden="true"></i>
-              Ocorreu um erro. Por favor, tente novamente.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12" role="contentinfo">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="flex items-center mb-6 md:mb-0">
-          <img src="imagens/Logo.svg"
-               alt="Logo Portfólio LA"
-               class="w-10 h-10 mr-2 brightness-0 invert"
-               width="40" height="40"
-               loading="lazy">
-          <div>
-            <span class="text-xl font-bold">Portfólio LA</span>
-            <p class="text-gray-400 text-sm">Arquitetura e Urbanismo com inovação e sustentabilidade</p>
-          </div>
-        </div>
-        <nav aria-label="Links do rodapé">
-          <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2">
-            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Início</a></li>
-            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Sobre</a></li>
-            <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfólio</a></li>
-            <li><a href="#pesquisa" class="text-gray-400 hover:text-white transition-colors">Pesquisa</a></li>
-            <li><a href="#competencias" class="text-gray-400 hover:text-white transition-colors">Competências</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contato</a></li>
+<!-- ============ SOBRE ============ -->
+<section class="sec sobre" id="sobre" aria-labelledby="sobre-t">
+  <div class="shead"><h2 id="sobre-t">Sobre mim</h2></div>
+  <div class="sgrid">
+    <figure class="foto">
+      <img src="img/luis-andrade.jpg" alt="Retrato de Luis Andrade" loading="lazy">
+    </figure>
+    <div class="bio">
+      <p class="lead">Arquiteto e urbanista especializado em paisagismo e planejamento urbano, com foco na preservação do patrimônio histórico-cultural.</p>
+      <p>A formação acadêmica foi fundamental para ampliar meu embasamento teórico e minha busca contínua por conhecimento nas diversas áreas da Arquitetura e Urbanismo. Hoje trabalho entre Brasil e Portugal, do projeto de edifício ao planejamento do território.</p>
+      <div class="cols">
+        <div>
+          <h3>Áreas de atuação</h3>
+          <ul class="plain">
+            <li>Projeto de arquitetura</li>
+            <li>Planejamento e projeto urbano</li>
+            <li>Paisagismo e infraestrutura verde</li>
+            <li>Patrimônio e reabilitação</li>
           </ul>
-        </nav>
+        </div>
+        <div>
+          <h3>Idiomas</h3>
+          <ul class="plain lang">
+            <li><span>Português</span><span>Nativo</span></li>
+            <li><span>Inglês</span><span>C1</span></li>
+          </ul>
+          <h3 class="h3t">Ferramentas</h3>
+          <ul class="chips"><li>AutoCAD</li><li>ArcGIS Pro</li><li>QGIS</li><li>Photoshop</li><li>Illustrator</li><li>InDesign</li></ul>
+        </div>
       </div>
-      <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
-        <div class="flex justify-center gap-5 mb-4">
-          <a href="https://www.linkedin.com/in/luis-e-l-andrade-a10b583b4/" target="_blank" rel="noopener noreferrer"
-             class="text-gray-400 hover:text-white transition-colors text-xl" aria-label="LinkedIn de Luis Andrade">
-            <i class="fab fa-linkedin" aria-hidden="true"></i>
-          </a>
-          <a href="mailto:luis.ela.arquitetura@hotmail.com"
-             class="text-gray-400 hover:text-white transition-colors text-xl" aria-label="Email de Luis Andrade">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-          </a>
-        </div>
-        <p>© <span id="footer-year"></span> Portfólio LA. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Project Modal (estilo ArchDaily: fundo contínuo, blocos flutuantes) -->
-  <div id="project-modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <!-- Fundo contínuo escuro -->
-    <div class="archd-backdrop absolute inset-0"></div>
-
-    <!-- Botão X global -->
-    <button onclick="closeProjectModal()"
-            class="absolute top-4 right-4 z-30 bg-black/50 hover:bg-black/80 text-white w-11 h-11 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
-            aria-label="Fechar">
-      <i class="fas fa-times text-xl" aria-hidden="true"></i>
-    </button>
-
-    <!-- Layout: imagem (esq) + painel (dir), com respiro à volta -->
-    <div class="relative z-10 h-full flex flex-col lg:flex-row gap-4 lg:gap-6 p-4 md:p-6 lg:p-8 pb-12 lg:pb-14">
-
-      <!-- Palco da imagem (flutua, com respiro) -->
-      <div class="archd-stage relative flex-1 flex items-center justify-center min-h-0">
-        <!-- Título + contador sobre a imagem -->
-        <div class="absolute top-0 left-0 z-20 p-4 pr-14 w-full pointer-events-none">
-          <h2 id="modal-title-overlay" class="text-white text-lg md:text-xl font-semibold leading-tight" style="text-shadow:0 1px 8px rgba(0,0,0,0.7)"></h2>
-          <p id="modal-counter" class="text-white/85 text-sm mt-1.5 font-medium" style="text-shadow:0 1px 6px rgba(0,0,0,0.8)"></p>
-        </div>
-
-        <!-- Carrossel -->
-        <div class="carousel-container w-full h-full" style="min-height:300px;">
-          <div class="carousel-track" id="modal-carousel"></div>
-          <button class="carousel-nav carousel-prev" onclick="prevSlide()" aria-label="Imagem anterior">
-            <i class="fas fa-chevron-left" aria-hidden="true"></i>
-          </button>
-          <button class="carousel-nav carousel-next" onclick="nextSlide()" aria-label="Próxima imagem">
-            <i class="fas fa-chevron-right" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <!-- Tags sobre a imagem -->
-        <div id="modal-tags" class="absolute bottom-0 left-0 z-20 p-4 flex flex-wrap gap-2"></div>
-      </div>
-
-      <!-- Painel lateral (flutua, separado por gap) -->
-      <aside class="archd-panel w-full lg:w-[360px] flex-shrink-0 overflow-y-auto flex flex-col">
-        <div class="p-6 flex-1">
-          <!-- Título do projeto (sempre visível aqui) -->
-          <h3 id="modal-title" class="text-xl font-bold text-gray-900 leading-tight mb-1"></h3>
-          <p id="modal-subtitle-panel" class="text-xs text-gray-400 uppercase tracking-wide mb-5"></p>
-
-          <!-- Ficha do projeto — PRIMEIRO -->
-          <div class="mb-6">
-            <ul class="space-y-3 text-sm">
-              <li>
-                <span class="block text-gray-400 text-xs uppercase tracking-wide mb-0.5">Tipo</span>
-                <span id="modal-type" class="text-gray-800"></span>
-              </li>
-              <li>
-                <span class="block text-gray-400 text-xs uppercase tracking-wide mb-0.5">Ano</span>
-                <span id="modal-date" class="text-gray-800"></span>
-              </li>
-              <li>
-                <span class="block text-gray-400 text-xs uppercase tracking-wide mb-0.5">Local</span>
-                <span id="modal-location" class="text-gray-800"></span>
-              </li>
-              <li id="modal-people-row">
-                <span class="block text-gray-400 text-xs uppercase tracking-wide mb-0.5" id="modal-people-label">Orientador</span>
-                <span id="modal-people-value" class="text-gray-800"></span>
-              </li>
-              <li>
-                <span class="block text-gray-400 text-xs uppercase tracking-wide mb-0.5">Área</span>
-                <span id="modal-area" class="text-gray-800"></span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Botão de PDF -->
-          <a id="modal-pdf-btn"
-             href="#"
-             target="_blank"
-             rel="noopener"
-             class="hidden mb-6 items-center gap-2 bg-[var(--primary-color)] text-white hover:bg-[var(--dark-color)] font-medium py-2.5 px-5 text-sm transition duration-300 w-full justify-center">
-            <i class="fas fa-file-pdf" aria-hidden="true"></i>
-            Ver caderno completo (PDF)
-          </a>
-
-          <!-- Descrição — DEPOIS da ficha -->
-          <div class="border-t border-gray-200 pt-5">
-            <p id="modal-description" class="text-gray-600 text-sm leading-relaxed"></p>
-          </div>
-        </div>
-      </aside>
-
-    </div>
-
-    <!-- Navegação entre projetos: sobre o fundo escuro, seamless -->
-    <div class="absolute bottom-0 left-0 right-0 z-20 flex items-stretch pointer-events-none px-4 md:px-6 lg:px-8 pb-2">
-      <button onclick="navigateProject(-1)" id="prev-project-btn"
-              class="pointer-events-auto flex items-center gap-2.5 py-2 pr-4 text-left transition-opacity hover:opacity-70 disabled:opacity-20 disabled:cursor-not-allowed">
-        <i class="fas fa-arrow-left text-white/80 text-sm" aria-hidden="true"></i>
-        <span class="min-w-0">
-          <span class="block text-[9px] uppercase tracking-widest text-white/40 leading-none mb-0.5">Anterior</span>
-          <span id="prev-project-name" class="block text-xs font-medium text-white/90 truncate max-w-[180px]"></span>
-        </span>
-      </button>
-      <div class="flex-1"></div>
-      <button onclick="navigateProject(1)" id="next-project-btn"
-              class="pointer-events-auto flex items-center justify-end gap-2.5 py-2 pl-4 text-right transition-opacity hover:opacity-70 disabled:opacity-20 disabled:cursor-not-allowed">
-        <span class="min-w-0">
-          <span class="block text-[9px] uppercase tracking-widest text-white/40 leading-none mb-0.5">Próximo</span>
-          <span id="next-project-name" class="block text-xs font-medium text-white/90 truncate max-w-[180px]"></span>
-        </span>
-        <i class="fas fa-arrow-right text-white/80 text-sm" aria-hidden="true"></i>
-      </button>
+      <div class="btns"><a class="btn dark" href="#contato">Entre em contato</a><a class="btn" href="cv/luis-andrade-CV-2026.pdf" target="_blank" rel="noopener">Baixar CV (PDF)</a></div>
     </div>
   </div>
 
-  <script>
-    // ── Loading screen ──
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('loader');
-      if (loader) { loader.classList.add('hidden'); }
-    });
+  <div class="tl" aria-label="Formação e experiências">
+    <h3>Formação e experiências</h3>
+    <ol>
+      <li><span class="d">Jan 2019 · Dez 2023</span><b>Bacharelado em Arquitetura e Urbanismo</b><span>PUC-Campinas</span></li>
+      <li><span class="d">Fev 2022 · Jun 2022</span><b>Assistente Estagiário Universitário</b><span>Extensão HABITAR 60+</span></li>
+      <li><span class="d">Fev 2023 · Jan 2024</span><b>Assistente Estagiário Universitário</b><span>Marcelo Novaes Paisagismo · Campinas</span></li>
+      <li><span class="d">Set 2024 · Jul 2026</span><b>Mestrado em Ordenamento do Território e Urbanismo</b><span>Universidade de Lisboa</span></li>
+    </ol>
+  </div>
+</section>
 
-    // ── Scroll to top ──
-    const scrollTopBtn = document.getElementById('scrollTop');
-    window.addEventListener('scroll', () => {
-      scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
-    }, { passive: true });
+<!-- ============ PROJETOS ============ -->
+<section class="sec projects" id="projetos" aria-labelledby="ptit">
+  <div class="phead">
+    <div>
+      <h2 id="ptit">Projetos</h2>
+      <p>Da dissertação em Odivelas à orla de Vitória e às escolas de Campinas. Clique num projeto para abrir as imagens e o caderno, ou veja no mapa onde estão.</p>
+    </div>
+    <div class="ctrls">
+      <div class="seg" role="group" aria-label="Filtrar por país">
+        <button type="button" data-f="all" aria-pressed="true">Todos</button>
+        <button type="button" data-f="pt" aria-pressed="false">Portugal</button>
+        <button type="button" data-f="br" aria-pressed="false">Brasil</button>
+      </div>
+      <div class="seg" role="group" aria-label="Ver como">
+        <button type="button" data-view="ampla" aria-pressed="true"><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><rect x="1" y="1" width="16" height="12" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Vista ampla</button>
+        <button type="button" data-view="grade" aria-pressed="false"><svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><rect x="1" y="1" width="7" height="5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="10" y="1" width="7" height="5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="1" y="8" width="7" height="5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="10" y="8" width="7" height="5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Grade</button>
+      </div>
+      <button type="button" class="mapbtn" id="mapbtn" aria-pressed="false" aria-label="Ver no mapa onde estão os projetos" title="Ver no mapa"><svg width="16" height="19" viewBox="0 0 14 16" aria-hidden="true"><path d="M7 15s5-5.2 5-8.6A5 5 0 0 0 2 6.4C2 9.8 7 15 7 15z" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="7" cy="6.4" r="1.8" fill="currentColor"/></svg></button>
+    </div>
+  </div>
 
-    // ── Navbar shadow on scroll ──
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('shadow-lg', window.scrollY > 50);
-    }, { passive: true });
+  <div id="ampla">
+    <div class="tabs" role="tablist" aria-label="Projetos" id="tabs"></div>
+    <div class="stage">
+      <div class="fwrap">
+        <button class="frame" type="button" id="frame" aria-label="Abrir as imagens do projeto"><img id="fimg" src="" alt=""><span class="open">Abrir projeto <i id="fcount"></i></span></button>
+        <button class="side" type="button" id="fprev" aria-label="Projeto anterior"><svg width="18" height="56" viewBox="0 0 18 56" aria-hidden="true"><path d="M15 2 3 28l12 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <button class="peek" type="button" id="peek" aria-label="Ver o projeto seguinte"><img id="pimg" src="" alt=""><span class="pa" aria-hidden="true"><svg width="18" height="56" viewBox="0 0 18 56"><path d="M3 2l12 26L3 54" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="lab">Seguinte<b id="pname"></b></span></button>
+    </div>
+    <div class="info" aria-live="polite">
+      <div class="t">
+        <span class="num" id="inum"></span>
+        <div class="tx">
+          <h3 id="iname"></h3>
+          <div class="meta" id="imeta"></div>
+          <p class="desc" id="idesc"></p>
+        </div>
+      </div>
+      <div class="act">
+        <a class="lnk" id="ipdf" href="#" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+  </div>
 
-    // ── Mobile menu toggle ──
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden');
-      menuToggle.setAttribute('aria-expanded', String(!isOpen));
-    });
+  <div id="grade" class="grid" hidden></div>
 
-    // Close mobile menu when link is clicked
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+  <div id="mapav" class="mapav" hidden>
+    <div class="maps">
+      <figure class="mp" id="mpbr" aria-label="Mapa do Brasil">
+        <svg viewBox="0 0 520 530" role="img" aria-label="Contorno do Brasil com os pontos de Campinas e Vitória"><path id="brpath" class="land"/><g id="brpins"></g></svg>
+        <figcaption>Brasil</figcaption>
+      </figure>
+      <figure class="mp pt" id="mppt" aria-label="Mapa de Portugal">
+        <svg viewBox="-10 0 250 470" role="img" aria-label="Contorno de Portugal continental com o ponto da Grande Lisboa"><path id="ptpath" class="land"/><g id="ptpins"></g></svg>
+        <figcaption>Portugal</figcaption>
+      </figure>
+      <div class="maplist" id="maplist" aria-live="polite"></div>
+    </div>
+    <p class="src">Toque num ponto para ver os projetos desse lugar. Contornos: Natural Earth.</p>
+  </div>
+</section>
 
-    // ── Fade-in on scroll (IntersectionObserver) com cascata ──
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Cascata: itens irmãos dentro do mesmo grid entram em sequência
-          const el = entry.target;
-          const siblings = Array.from(el.parentElement.children).filter(c => c.classList.contains('fade-in'));
-          const idx = siblings.indexOf(el);
-          el.style.transitionDelay = (idx > 0 ? Math.min(idx, 6) * 0.08 : 0) + 's';
-          el.classList.add('visible');
-          observer.unobserve(el);
-        }
-      });
-    }, { threshold: 0.1 });
+<!-- ============ ESTUDOS E APLICAÇÕES ============ -->
+<section class="sec quiet" id="estudos" aria-labelledby="est-t">
+  <div class="qb">
+    <div class="qh">
+      <h2 id="est-t">Estudos</h2>
+      <p class="sub">Trabalhos técnicos e acadêmicos do Mestrado em Ordenamento do Território e Urbanismo.</p>
+    </div>
+    <ul class="rows">
+      <li>
+        <div class="rn"><b>Dissertação de Mestrado</b><small>Ordenamento do Território e Urbanismo · FA.ULisboa · 2026</small></div>
+        <div class="rd"><span>Regenerar infraestruturas de transporte como infraestrutura verde: Soluções Baseadas na Natureza no território de Odivelas.</span><small><a class="inl" href="#projetos" data-abrir="tese">Ver as imagens no projeto</a></small></div>
+        <a href="cv/luis-andrade-dissertacao-2026.pdf" target="_blank" rel="noopener">PDF ↗</a>
+      </li>
+      <li>
+        <div class="rn"><b>Dispositivos de Perequação</b><small>Gestão Urbanística e do Imobiliário · 2025</small></div>
+        <div class="rd"><span>Plano de Pormenor Sul Nascente, Sines: reparcelamento, unidades de execução, custos de urbanização e plano de financiamento.</span><small>Com Bárbara Galinha, Tomás Barboza e Tiago Casimiro</small></div>
+        <a href="cv/estudo-perequacao-sines.pdf" target="_blank" rel="noopener">PDF ↗</a>
+      </li>
+      <li>
+        <div class="rn"><b>A cidade de 15 minutos na Póvoa de Santa Iria</b><small>Planeamento e Gestão da Mobilidade · 2025</small></div>
+        <div class="rd"><span>Estudo de mobilidade: o conceito da cidade de 15 minutos aplicado à Póvoa de Santa Iria, Vila Franca de Xira, com diagnóstico setorial e proposta.</span><small>Com Tiago Casimiro e Alexandru Chakhachiro</small></div>
+        <a href="cv/estudo-mobilidade-15-minutos-povoa.pdf" target="_blank" rel="noopener">PDF ↗</a>
+      </li>
+      <li>
+        <div class="rn"><b>The Algarve SEA</b><small>Strategic Planning: Methods and Evaluation · 2025</small></div>
+        <div class="rd"><span>Avaliação Ambiental Estratégica: a economia azul como estratégia para o Algarve, com análise ex-ante, matrizes de coerência e quadro de monitorização.</span><small>Com Alexandru Chakhachiro e Maisha Rahman</small></div>
+        <a href="cv/estudo-algarve-sea.pdf" target="_blank" rel="noopener">PDF ↗</a>
+      </li>
+    </ul>
+  </div>
+  <div class="qb" id="aplicacoes">
+    <div class="qh">
+      <h2>Aplicações</h2>
+      <p class="sub">Ferramentas interativas que criei.</p>
+    </div>
+    <ul class="rows">
+      <li>
+        <div class="rn"><b>Território Explicado</b><small>Ferramenta de estudo · 2026</small></div>
+        <div class="rd"><span>Guia interativo do ordenamento do território em Portugal: planos, execução, licenciamento, reabilitação e fundos europeus.</span></div>
+        <a href="https://territorioportugal.netlify.app" target="_blank" rel="noopener">Abrir ↗</a>
+      </li>
+    </ul>
+  </div>
+</section>
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+<!-- ============ CONTATO ============ -->
+<section class="sec contato" id="contato" aria-labelledby="cont-t">
+  <div class="cgrid">
+    <div>
+      <span class="k">Contato</span>
+      <h2 id="cont-t">Entre em contato</h2>
+      <p class="sub">Quer conversar sobre uma vaga, um projeto ou uma colaboração? Escreva-me e respondo assim que possível.</p>
+      <dl class="info2">
+        <div><dt>Localização</dt><dd>Lisboa, Portugal</dd></div>
+        <div><dt>Telefone</dt><dd><a href="tel:+351912113920">+351 912 113 920</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:luis.ela.arquitetura@hotmail.com">luis.ela.arquitetura@hotmail.com</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/luis-e-l-andrade-a10b583b4/" target="_blank" rel="noopener">Luis Andrade</a></dd></div>
+      </dl>
+    </div>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form" novalidate>
+      <input type="hidden" name="form-name" value="contact">
+      <p class="vh"><label>Não preencha este campo: <input name="bot-field"></label></p>
+      <div class="two">
+        <label>Primeiro nome *<input name="first-name" required autocomplete="given-name"></label>
+        <label>Sobrenome<input name="last-name" autocomplete="family-name"></label>
+      </div>
+      <label>Email *<input type="email" name="email" required autocomplete="email"></label>
+      <label>Mensagem *<textarea name="message" rows="5" required></textarea></label>
+      <button class="btn dark" type="submit">Enviar mensagem</button>
+      <p class="fmsg" id="fmsg" role="status"></p>
+    </form>
+  </div>
+</section>
 
-    // ── Footer year ──
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
+</main>
 
-    // ── Contact form (Netlify) ──
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        try {
-          const res = await fetch('/', { method: 'POST', body: formData });
-          if (res.ok) {
-            contactForm.reset();
-            document.getElementById('form-success').classList.remove('hidden');
-            setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 5000);
-          } else { throw new Error('Server error'); }
-        } catch {
-          document.getElementById('form-error').classList.remove('hidden');
-          setTimeout(() => document.getElementById('form-error').classList.add('hidden'), 5000);
-        }
-      });
-    }
+<footer class="foot">
+  <span>© Luis Andrade · Arquitetura e Urbanismo</span>
+  <a href="#inicio">Voltar ao início ↑</a>
+</footer>
 
-    // ── Modal & Carousel ──
-    let currentSlide = 0;
-    let currentProjectIndex = 0;
-    const projectItems = () => Array.from(document.querySelectorAll('#portfolio-grid .portfolio-item'));
+<!-- ============ POPUP DO PROJETO ============ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mname" hidden>
+  <div class="mback" id="mback"></div>
+  <div class="mbox">
+    <div class="mview">
+      <div class="mhead"><span class="mtitle" id="mtitle"></span><span class="mcount" id="mcount"></span></div>
+      <div class="mimg"><img id="mimg" src="" alt=""></div>
+      <button type="button" class="marr l" id="mprev" aria-label="Imagem anterior"><svg width="22" height="72" viewBox="0 0 22 72" aria-hidden="true"><path d="M19 2 3 36l16 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button type="button" class="marr r" id="mnext" aria-label="Próxima imagem"><svg width="22" height="72" viewBox="0 0 22 72" aria-hidden="true"><path d="M3 2l16 34L3 70" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="mfoot"><div class="mtags" id="mtags"></div><p class="mcap" id="mcap"></p></div>
+    </div>
+    <aside class="mside">
+      <button type="button" class="mclose" id="mclose" aria-label="Fechar">✕</button>
+      <span class="mnum" id="mnum"></span>
+      <h3 id="mname"></h3>
+      <dl class="mdl" id="mdl"></dl>
+      <a class="btn dark" id="mpdf" href="#" target="_blank" rel="noopener"></a>
+      <p id="mdesc"></p>
+    </aside>
+  </div>
+  <div class="mproj">
+    <button type="button" id="mpp"><span>Anterior</span><b id="mppn"></b></button>
+    <button type="button" id="mpn"><span>Próximo</span><b id="mpnn"></b></button>
+  </div>
+</div>
 
-    function openProjectModal(index) {
-      const items = projectItems();
-      if (index < 0 || index >= items.length) return;
-      currentProjectIndex = index;
-      const item = items[index];
-      const images = JSON.parse(item.dataset.images || '[]');
-
-      document.getElementById('modal-title').textContent = item.dataset.title || '';
-      document.getElementById('modal-title-overlay').textContent = item.dataset.title || '';
-      document.getElementById('modal-subtitle-panel').textContent = item.dataset.type || '';
-      document.getElementById('modal-description').textContent = item.dataset.description || '';
-      document.getElementById('modal-type').textContent = item.dataset.type || '';
-      document.getElementById('modal-date').textContent = item.dataset.date || '';
-      document.getElementById('modal-location').textContent = item.dataset.location || '';
-      document.getElementById('modal-area').textContent = item.dataset.area || '';
-
-      // Tags sobre a imagem (derivadas do "Tipo", separadas por vírgula)
-      const tagsWrap = document.getElementById('modal-tags');
-      const typeStr = item.dataset.type || '';
-      tagsWrap.innerHTML = typeStr
-        .split(',')
-        .map(t => t.trim())
-        .filter(Boolean)
-        .map(t => `<span class="archd-tag">${t}</span>`)
-        .join('');
-
-      // ✅ Exibe "Orientador" ou "Equipe" conforme o projeto
-      const advisor = item.dataset.advisor || '';
-      const team = item.dataset.team || '';
-      const peopleRow = document.getElementById('modal-people-row');
-      const peopleLabel = document.getElementById('modal-people-label');
-      const peopleValue = document.getElementById('modal-people-value');
-      if (team) {
-        peopleLabel.textContent = 'Equipe:';
-        peopleValue.textContent = team;
-        peopleRow.style.display = '';
-      } else if (advisor) {
-        peopleLabel.textContent = 'Orientador:';
-        peopleValue.textContent = advisor;
-        peopleRow.style.display = '';
-      } else {
-        peopleRow.style.display = 'none';
-      }
-
-      // Botão de PDF: mostra só se o projeto tiver data-pdf
-      const pdfBtn = document.getElementById('modal-pdf-btn');
-      const pdfUrl = item.dataset.pdf || '';
-      if (pdfUrl) {
-        pdfBtn.href = pdfUrl;
-        pdfBtn.classList.remove('hidden');
-        pdfBtn.classList.add('inline-flex');
-      } else {
-        pdfBtn.classList.add('hidden');
-        pdfBtn.classList.remove('inline-flex');
-      }
-
-      buildCarousel(images);
-      updateProjectNav(index, items.length);
-
-      const modal = document.getElementById('project-modal');
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-      document.body.classList.add('modal-open');
-      modal.focus();
-    }
-
-    function closeProjectModal() {
-      const modal = document.getElementById('project-modal');
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
-      document.body.classList.remove('modal-open');
-    }
-
-    // Close modal on backdrop click
-    document.getElementById('project-modal').addEventListener('click', (e) => {
-      if (e.target === e.currentTarget || e.target.classList.contains('archd-backdrop')) closeProjectModal();
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeProjectModal();
-    });
-
-    function buildCarousel(images) {
-      currentSlide = 0;
-      const track = document.getElementById('modal-carousel');
-
-      track.innerHTML = images.map((src, i) =>
-        `<div class="carousel-slide">
-          <img src="${src}" alt="Imagem ${i+1} do projeto" loading="lazy">
-        </div>`
-      ).join('');
-
-      updateCounter(0, images.length);
-    }
-
-    function updateCounter(index, total) {
-      const counter = document.getElementById('modal-counter');
-      if (counter) counter.textContent = total > 0 ? `${index + 1} / ${total}` : '';
-    }
-
-    function goToSlide(index) {
-      const track = document.getElementById('modal-carousel');
-      const slides = track.querySelectorAll('.carousel-slide');
-      if (index < 0 || index >= slides.length) return;
-      currentSlide = index;
-      track.style.transform = `translateX(-${100 * index}%)`;
-      updateCounter(index, slides.length);
-    }
-
-    function prevSlide() {
-      const count = document.querySelectorAll('.carousel-slide').length;
-      goToSlide((currentSlide - 1 + count) % count);
-    }
-
-    function nextSlide() {
-      const count = document.querySelectorAll('.carousel-slide').length;
-      goToSlide((currentSlide + 1) % count);
-    }
-
-    function navigateProject(direction) {
-      const items = projectItems();
-      const next = currentProjectIndex + direction;
-      if (next >= 0 && next < items.length) openProjectModal(next);
-    }
-
-    function updateProjectNav(index, total) {
-      const items = projectItems();
-      const prevBtn = document.getElementById('prev-project-btn');
-      const nextBtn = document.getElementById('next-project-btn');
-      const prevName = document.getElementById('prev-project-name');
-      const nextName = document.getElementById('next-project-name');
-
-      prevBtn.disabled = index === 0;
-      nextBtn.disabled = index === total - 1;
-      prevName.textContent = index > 0 ? items[index-1].dataset.title : '—';
-      nextName.textContent = index < total - 1 ? items[index+1].dataset.title : '—';
-    }
-
-    // ── Keyboard navigation on carousel ──
-    document.getElementById('project-modal').addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') prevSlide();
-      if (e.key === 'ArrowRight') nextSlide();
-    });
-
-    // ── Swipe touch support for carousel (mobile) ──
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const carouselContainer = document.querySelector('.carousel-container');
-
-    document.getElementById('project-modal').addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].clientX;
-    }, { passive: true });
-
-    document.getElementById('project-modal').addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].clientX;
-      const diff = touchStartX - touchEndX;
-      if (Math.abs(diff) > 50) { // mínimo de 50px para considerar swipe
-        if (diff > 0) nextSlide();
-        else prevSlide();
-      }
-    }, { passive: true });
-  </script>
+<script src="js/dados.js"></script>
+<script src="js/site.js"></script>
 </body>
 </html>
